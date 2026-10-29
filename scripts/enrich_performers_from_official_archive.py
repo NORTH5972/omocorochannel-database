@@ -60,6 +60,7 @@ def main():
             cards = soup.select("li, .video-item, .archive-item, .post-item")
         page_matches = 0
         if page_no == 1:
+            print("DEBUG TITLE ANCHORS:", [(a.get_text(" ", strip=True)[:100], a.get("href", "")) for a in soup.find_all("a", href=True) if len(a.get_text(" ", strip=True)) > 15][:20])
             for sample in cards[:3]:
                 print("DEBUG CARD:", sample.get_text(" ", strip=True)[:500])
                 print("DEBUG LINKS:", [(a.get_text(" ", strip=True), a.get("href", "")) for a in sample.find_all("a", href=True)[:8]])
