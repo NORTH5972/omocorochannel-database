@@ -109,37 +109,43 @@ def main():
     except Exception as exc:
         print(f"WARNING: RSS fetch failed: {type(exc).__name__}: {exc}")
 
-    # Retry missing publication dates by querying each video's detailed metadata.
+    # Retry missing publication dates one video at a time. A single batch can fail
+    # completely if one unavailable/private video causes yt-dlp to stop early.
     missing_ids = [
         str(v.get("id") or v.get("videoId"))
         for v in existing
         if isinstance(v, dict) and (v.get("id") or v.get("videoId"))
         and not str(v.get("publishedAt") or "").strip()
     ]
-    if missing_ids:
-        urls = [f"https://www.youtube.com/watch?v={video_id}" for video_id in missing_ids]
+    recovered = 0
+    failed = 0
+    for video_id in missing_ids:
         command = [
-            "yt-dlp", "--skip-download", "--dump-json", "--ignore-errors",
-            "--no-warnings", "--no-playlist", *urls,
+            "yt-dlp", "--skip-download", "--dump-single-json", "--ignore-errors",
+            "--no-warnings", "--no-playlist", f"https://www.youtube.com/watch?v={video_id}",
         ]
         try:
-            result = subprocess.run(command, check=False, capture_output=True, text=True, timeout=1800)
-            recovered = 0
+            result = subprocess.run(command, check=False, capture_output=True, text=True, timeout=45)
+            entry = None
             for line in result.stdout.splitlines():
                 try:
-                    entry = json.loads(line)
+                    candidate = json.loads(line)
                 except json.JSONDecodeError:
                     continue
-                video_id = str(entry.get("id") or "")
-                upload_date = entry.get("upload_date") or ""
-                if video_id in missing_ids and len(upload_date) == 8 and upload_date.isdigit():
-                    discovered.setdefault(video_id, {})["publishedAt"] = f"{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:8]}"
-                    recovered += 1
-            print(f"Detailed metadata retry: recovered dates for {recovered}/{len(missing_ids)} previously undated videos")
-            if result.returncode != 0:
-                print("WARNING: yt-dlp returned a non-zero status during detailed metadata retry")
-        except Exception as exc:
-            print(f"WARNING: detailed metadata retry failed: {type(exc).__name__}: {exc}")
+                if str(candidate.get("id") or "") == video_id:
+                    entry = candidate
+                    break
+            upload_date = (entry or {}).get("upload_date") or ""
+            if len(upload_date) == 8 and upload_date.isdigit():
+                discovered.setdefault(video_id, {})["publishedAt"] = (
+                    f"{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:8]}"
+                )
+                recovered += 1
+            else:
+                failed += 1
+        except Exception:
+            failed += 1
+    print(f"Detailed metadata retry: recovered dates for {recovered}/{len(missing_ids)} previously undated videos; unresolved: {failed}")
 
     added = 0
     for video_id, metadata in discovered.items():
