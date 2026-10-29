@@ -101,34 +101,20 @@ def get_official_archive_dates():
     found_titles = []
     queue = [base]
 
-    class ArticleParser(HTMLParser):
+    class ArchiveParser(HTMLParser):
+        """Collect visible archive text and links without assuming card markup."""
         def __init__(self):
             super().__init__(convert_charrefs=True)
-            self.article_depth = 0
-            self.article = []
-            self.blocks = []
-
-        def handle_starttag(self, tag, attrs):
-            attrs = dict(attrs)
-            if tag == "article":
-                if self.article_depth == 0:
-                    self.article = []
-                self.article_depth += 1
-            if self.article_depth:
-                self.article.append(("start", tag, attrs))
-
-        def handle_endtag(self, tag):
-            if self.article_depth:
-                self.article.append(("end", tag, {}))
-                if tag == "article":
-                    self.article_depth -= 1
-                    if self.article_depth == 0:
-                        self.blocks.append(self.article)
-                        self.article = []
+            self.text_parts = []
 
         def handle_data(self, data):
-            if self.article_depth:
-                self.article.append(("data", "", data))
+            if data.strip():
+                self.text_parts.append(data.strip())
+
+        @property
+        def text(self):
+            return " ".join(self.text_parts)
+
 
     # The archive is paginated; cap the crawl to avoid an unbounded request loop.
     while queue and len(seen_pages) < 80:
@@ -146,39 +132,31 @@ def get_official_archive_dates():
             print(f"Official archive page unavailable ({page}): {type(exc).__name__}")
             continue
 
-        parser = ArticleParser()
+        parser = ArchiveParser()
         parser.feed(html)
-        for block in parser.blocks:
-            serialized_parts = []
-            text_parts = []
-            for kind, tag, value in block:
-                if kind == "start":
-                    serialized_parts.append(str(value))
-                elif kind == "data":
-                    serialized_parts.append(str(value))
-                    text_parts.append(str(value))
-            serialized = " ".join(serialized_parts)
-            article_text = " ".join(" ".join(text_parts).split())
-            # Match embedded or linked YouTube videos to the post's published date.
-            ids = set(re.findall(
-                r"(?:youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})",
-                serialized
-            ))
-            dates = re.findall(r"(?:datetime|content|data-date)[\"'=:\s]+([12]\d{3})[-./]([01]\d)[-./]([0-3]\d)", serialized)
-            if not dates:
-                dates = re.findall(r"([12]\d{3})\.([01]\d)\.([0-3]\d)", serialized)
-            if dates:
-                year, month, day = dates[0]
-                published = f"{year}-{month}-{day}"
-                for video_id in ids:
-                    found[video_id] = published
-                if article_text:
-                    found_titles.append((article_text, published))
+        page_text = " ".join(parser.text.split())
+        # The archive cards are not consistently wrapped in <article> tags.
+        # Record each visible date with the full page text and its position so
+        # missing video titles can be matched to nearby dates.
+        dates = list(re.finditer(r"([12]\\d{3})[.]([01]\\d)[.]([0-3]\\d)", page_text))
+        for match in dates:
+            year, month, day = match.groups()
+            found_titles.append((page_text, f"{year}-{month}-{day}", match.start()))
 
-        # Follow the site's explicit next-page link when present.
-        next_links = re.findall(r'<a\b[^>]*\brel=["\']next["\'][^>]*\bhref=["\']([^"\']+)', html, re.I)
-        if not next_links:
-            next_links = re.findall(r'<link\b[^>]*\brel=["\']next["\'][^>]*\bhref=["\']([^"\']+)', html, re.I)
+        # Keep direct ID matching as a fallback if the archive embeds YouTube links.
+        ids = set(re.findall(
+            r"(?:youtube(?:-nocookie)?\\.com/(?:watch\\?v=|embed/|shorts/)|youtu\\.be/)([A-Za-z0-9_-]{11})",
+            html
+        ))
+        iso_dates = re.findall(r"(?:datetime|content|data-date)[\\\"'=:\\s]+([12]\\d{3})[-./]([01]\\d)[-./]([0-3]\\d)", html)
+        if iso_dates:
+            year, month, day = iso_dates[0]
+            for video_id in ids:
+                found[video_id] = f"{year}-{month}-{day}"
+
+        # Find rel=next regardless of whether href appears before or after rel.
+        next_tag = re.search(r'<(?:a|link)\\b(?=[^>]*\\brel=["\\']next["\\'])([^>]*)>', html, re.I)
+        next_links = re.findall(r'\\bhref=["\\']([^"\\']+)["\\']', next_tag.group(1), re.I) if next_tag else []
         if next_links:
             next_page = urljoin(page, next_links[0])
             if next_page not in seen_pages:
@@ -271,12 +249,16 @@ def main():
             key = title_key(old.get("title"))
             if len(key) < 8:
                 continue
-            for article_text, published in official_title_dates:
-                if key in title_key(article_text):
-                    old["publishedAt"] = published
-                    old["source"] = "オモコロ公式動画アーカイブ（タイトル照合）"
-                    official_recovered += 1
-                    break
+            for archive_text, published, date_pos in official_title_dates:
+                if key not in title_key(archive_text):
+                    continue
+                title_pos = archive_text.find(str(old.get("title") or ""))
+                if title_pos < 0 or abs(title_pos - date_pos) > 500:
+                    continue
+                old["publishedAt"] = published
+                old["source"] = "オモコロ公式動画アーカイブ（タイトル照合）"
+                official_recovered += 1
+                break
         print(f"Official archive date recovery: {official_recovered} previously undated videos")
     except Exception as exc:
         print(f"WARNING: official archive date recovery failed: {type(exc).__name__}: {exc}")
