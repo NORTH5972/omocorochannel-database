@@ -110,7 +110,7 @@ async function githubAppToken(env) {
   const response = await fetch('https://api.github.com/app/installations/' + encodeURIComponent(env.GITHUB_INSTALLATION_ID) + '/access_tokens', {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + jwt, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'omocoro-video-admin', 'Content-Type': 'application/json' },
-    body: JSON.stringify({ repository_names: ['omocorochannel-database'], permissions: { contents: 'write' } })
+    body: JSON.stringify({ repositories: ['omocorochannel-database'], permissions: { contents: 'write' } })
   });
   const data = await response.json();
   if (!response.ok || !data.token) throw new Error('GitHub Appのインストールトークンを取得できませんでした: ' + JSON.stringify(data));
@@ -127,6 +127,7 @@ async function getVideos(env) {
   const videos = JSON.parse(new TextDecoder().decode(bytes));
   return json({ videos: videos.map(v => ({ id: v.id, title: v.title, publishedAt: v.publishedAt || '', performers: Array.isArray(v.performers) ? v.performers : [] })) });
 }
+function validDate(value) { const date = new Date(value + 'T00:00:00Z'); return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value; }
 async function saveVideos(request, env) {
   let body;
   try { body = await request.json(); } catch { return json({ error: '送信データがJSONではありません。' }, 400); }
