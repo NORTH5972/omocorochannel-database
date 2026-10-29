@@ -27,16 +27,16 @@
 | aAlJAiwA-ao | ‪【特別編③】オモコロチャンネル未公開シーン集『盛り盛り伝言ゲーム編』！ | 2020-06-05 | 公開日確認済み。出典: https://www.youtube.com/watch?v=aAlJAiwA-ao |
 | a4edTh-S918 | 【10分でわかる】下町のスティーブ・ジョブズ　マンスーンって何者？ | 2019-08-14 | 公開日確認済み。出典: https://omocoro.jp/writer/arufa/page/77/ |
 | _xmtMC1PcTg | 答えを知らない人が正解になるクイズ『無知王』 | 2021-10-22 | 公開日確認済み。出典: https://www.youtube.com/watch?v=_xmtMC1PcTg |
-| Ubukmx-Vel4 | 今度こそ本気で地味～～～なお部屋を美しく改造！！今度はマジ！！ | 未確認 | タグ未確認 |
+| Ubukmx-Vel4 | 今度こそ本気で地味～～～なお部屋を美しく改造！！今度はマジ！！ | 2021-08-10 | 公開日確認済み。出典: https://www.youtube.com/watch?v=Ubukmx-Vel4 |
 | U-C5LALi004 | 物の良し悪しは社長ならわかるはず！「低レベル格付けチェック」 | 2021-10-08 | 公開日確認済み。出典: https://www.youtube.com/watch?v=U-C5LALi004 |
 | SA27mEiukdk | 【お願いします】ヘリが飛び、車が走る…シティチェイスをさせてくださぁい！！ | 2024-10-26 | 公開日確認済み。出典: https://www.youtube.com/watch?v=SA27mEiukdk |
-| RMjuRSzFBNo | 【バキクイズ】わたしは一向にかまわんッッ【まだやるかい？】 | 未確認 | タグ未確認 |
+| RMjuRSzFBNo | 【バキクイズ】わたしは一向にかまわんッッ【まだやるかい？】 | 2021-11-26 | 公開日確認済み。出典: https://www.youtube.com/watch?v=RMjuRSzFBNo |
 | OjsEoIXL758 | 37種類の天ぷらを奪い合って理想の天丼を作れ！天丼ドラフト王 | 2025-12-26 | 公開日確認済み。出典: https://www.youtube.com/watch?v=OjsEoIXL758 |
 | MEZxDXNvDTE | 説明ベタが遠隔で指示するとこうなる【爆弾解除マニュアル - Keep Talking and Nobody Explodes実況】 | 2022-01-21 | 公開日確認済み。出典: https://www.youtube.com/watch?v=MEZxDXNvDTE |
 | KR1mGbM9fkw | 永田クンの「コラボカフェ」があったら…　こんなメニュー、どうですか？プレゼン | 2026-01-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=KR1mGbM9fkw |
 | IhhnUsHT1BM | 同僚の苦手な切り干し大根を克服させてあげよう！友達だもんね！ | 2021-10-05 | 公開日確認済み。出典: https://www.youtube.com/watch?v=IhhnUsHT1BM |
 | HUnPp5lO4xQ | 納豆嫌いを克服する方法を見つけました | 2020-09-25 | 公開日確認済み。出典: https://www.youtube.com/watch?v=HUnPp5lO4xQ |
-| G6l8fp6k9tU | 大喜利のお題に"味"で回答するゲームがヤバすぎる | 未確認 | タグ未確認 |
+| G6l8fp6k9tU | 大喜利のお題に"味"で回答するゲームがヤバすぎる | 2021-07-10 | 公開日確認済み。出典: https://www.youtube.com/watch?v=G6l8fp6k9tU |
 | FEm774Sdcyw | 【全員正解はダメ】あえて数人だけが当てられる名前をつけよう！『メイメイ』！ | 2021-01-12 | 公開日確認済み。出典: https://www.youtube.com/watch?v=FEm774Sdcyw |
 | Ea1Afaalebo | クッキングパパ乱心!?「ホワイトすき焼き」を作ってみたらヤベッッッッッッ | 2021-11-06 | 公開日確認済み。出典: https://www.youtube.com/watch?v=Ea1Afaalebo |
 | D8Yw8pg3trE | 【Kevin's English Roomコラボ】英語のカッコいいネーミング対決！ | 2023-11-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=D8Yw8pg3trE |
@@ -52,10 +52,10 @@
 | 5kITfEQc7Fc | 大発見！じゃんけんを仕切ると200倍もおもしろくなる | 2021-02-02 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5kITfEQc7Fc |
 | 2lN4Kq4ly3M | 知ってるけど食べたことないものを決めるグランプリ【知ってるけど食べたことないですねぇ‐1グランプリ】 | 2024-10-02 | 公開日確認済み。出典: https://www.youtube.com/watch?v=2lN4Kq4ly3M |
 | 0jUNiwNRvZY | 言語感覚おかしい人とゲームをしたらすごいことになった【勇者ヌルポコ】 | 2021-02-19 | 公開日確認済み。出典: https://www.youtube.com/watch?v=0jUNiwNRvZY |
-| 0TYBx2Yvv-8 | これはもうもんじゃじゃない！ もんじゃ焼きドラフト選手権！ | 未確認 | タグ未確認 |
-| -sxR7Sf5jmQ | 【マクドナルド】美味すぎるマック最強カスタムレシピがヤバい | 未確認 | タグ未確認 |
-| -C2YO0dZh4s | 【幽白】おじさん大はしゃぎの幽☆遊☆白書カルトクイズ大会！！ | 未確認 | タグ未確認 |
+| 0TYBx2Yvv-8 | これはもうもんじゃじゃない！ もんじゃ焼きドラフト選手権！ | 2021-10-23 | 公開日確認済み。出典: https://note.com/not_freed_man/n/n21e7551205a4 |
+| -sxR7Sf5jmQ | 【マクドナルド】美味すぎるマック最強カスタムレシピがヤバい | 2019-10-18 | 公開日確認済み。出典: https://www.youtube.com/watch?v=-sxR7Sf5jmQ |
+| -C2YO0dZh4s | 【幽白】おじさん大はしゃぎの幽☆遊☆白書カルトクイズ大会！！ | 2021-04-09 | 公開日確認済み。出典: https://www.youtube.com/watch?v=-C2YO0dZh4s |
 
 初回対象: 52本
-公開日を補完: 37本
-未確認: 15本
+公開日を補完: 43本
+未確認: 9本
