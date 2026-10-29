@@ -1,0 +1,13 @@
+{
+  "name": "omocoro-video-admin",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Private admin editor for the omocoro channel video database",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
