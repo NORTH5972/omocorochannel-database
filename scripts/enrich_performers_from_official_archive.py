@@ -58,6 +58,7 @@ def main():
 
         page_matches = 0
         page_dates = 0
+        page_title_matches = 0
         for anchor in soup.find_all("a", href=True):
             title = clean(anchor.get_text(" ", strip=True))
             if title not in by_title:
@@ -65,6 +66,7 @@ def main():
             href = anchor.get("href", "")
             if not ("youtu.be/" in href or "youtube.com/watch" in href):
                 continue
+            page_title_matches += 1
 
             people = []
             published_date = ""
@@ -116,11 +118,11 @@ def main():
 
         if page_matches:
             pages_with_matches += 1
-        if page_matches or page_dates:
+        if page_title_matches or page_dates:
             empty_pages = 0
         else:
             empty_pages += 1
-        print(f"Archive page {page_no}: performer matches updated={page_matches}; publication dates added={page_dates}")
+        print(f"Archive page {page_no}: matched video cards={page_title_matches}; performer matches updated={page_matches}; publication dates added={page_dates}")
         if empty_pages >= 5:
             print("Five consecutive pages had no new matches; stopping.")
             break
