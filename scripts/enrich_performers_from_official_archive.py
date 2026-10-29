@@ -59,6 +59,10 @@ def main():
         if not cards:
             cards = soup.select("li, .video-item, .archive-item, .post-item")
         page_matches = 0
+        if page_no == 1:
+            for sample in cards[:3]:
+                print("DEBUG CARD:", sample.get_text(" ", strip=True)[:500])
+                print("DEBUG LINKS:", [(a.get_text(" ", strip=True), a.get("href", "")) for a in sample.find_all("a", href=True)[:8]])
         for card in cards:
             card_text = card.get_text(" ", strip=True)
             if not card_text:
