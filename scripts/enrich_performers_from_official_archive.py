@@ -82,7 +82,7 @@ def main():
                 if len(yt_links) != 1:
                     continue
                 card_text = parent.get_text(" ", strip=True)
-                date_match = re.search(r"(?<!\\d)(20\\d{2})[./年\\-]\\s*(\\d{1,2})[./月\\-]\\s*(\\d{1,2})日?", card_text)
+                date_match = re.search(r"(?<!\d)(20\d{2})[./年\-]\s*(\d{1,2})[./月\-]\s*(\d{1,2})日?", card_text)
                 if date_match and not published_date:
                     year, month, day = date_match.groups()
                     published_date = f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
