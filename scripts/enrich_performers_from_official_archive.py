@@ -42,6 +42,7 @@ def main():
             by_title.setdefault(title, []).append(video)
 
     matched = 0
+    dates_updated = 0
     pages_with_matches = 0
     empty_pages = 0
     for page_no in range(1, MAX_PAGES + 1):
@@ -56,6 +57,7 @@ def main():
             break
 
         page_matches = 0
+        page_dates = 0
         for anchor in soup.find_all("a", href=True):
             title = clean(anchor.get_text(" ", strip=True))
             if title not in by_title:
@@ -65,6 +67,7 @@ def main():
                 continue
 
             people = []
+            published_date = ""
             # Walk from the title link outward and use the smallest container that
             # contains exactly one YouTube link plus identifiable names.
             parent = anchor
@@ -78,6 +81,11 @@ def main():
                 ]
                 if len(yt_links) != 1:
                     continue
+                card_text = parent.get_text(" ", strip=True)
+                date_match = re.search(r"(?<!\\d)(20\\d{2})[./年\\-]\\s*(\\d{1,2})[./月\\-]\\s*(\\d{1,2})日?", card_text)
+                if date_match and not published_date:
+                    year, month, day = date_match.groups()
+                    published_date = f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
                 for item in parent.find_all("a", href=True):
                     item_href = item.get("href", "")
                     name = item.get_text(" ", strip=True)
@@ -90,9 +98,13 @@ def main():
                 if people:
                     break
 
-            if not people:
-                continue
             for video in by_title[title]:
+                if published_date and not video.get("publishedAt"):
+                    video["publishedAt"] = published_date
+                    dates_updated += 1
+                    page_dates += 1
+                if not people:
+                    continue
                 current = video.get("performers") or []
                 combined = list(dict.fromkeys(current + people))
                 if combined != current:
@@ -104,10 +116,11 @@ def main():
 
         if page_matches:
             pages_with_matches += 1
+        if page_matches or page_dates:
             empty_pages = 0
         else:
             empty_pages += 1
-        print(f"Archive page {page_no}: performer matches updated={page_matches}")
+        print(f"Archive page {page_no}: performer matches updated={page_matches}; publication dates added={page_dates}")
         if empty_pages >= 5:
             print("Five consecutive pages had no new matches; stopping.")
             break
@@ -115,7 +128,7 @@ def main():
 
     DATA.write_text(json.dumps(videos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     tagged = sum(1 for video in videos if video.get("performers"))
-    print(f"Performer enrichment updates: {matched}; videos with performer tags: {tagged}/{len(videos)}; pages with matches: {pages_with_matches}")
+    print(f"Performer enrichment updates: {matched}; publication dates added: {dates_updated}; videos with performer tags: {tagged}/{len(videos)}; pages with matches: {pages_with_matches}")
 
 
 if __name__ == "__main__":
