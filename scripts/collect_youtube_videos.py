@@ -109,6 +109,38 @@ def main():
     except Exception as exc:
         print(f"WARNING: RSS fetch failed: {type(exc).__name__}: {exc}")
 
+    # Retry missing publication dates by querying each video's detailed metadata.
+    missing_ids = [
+        str(v.get("id") or v.get("videoId"))
+        for v in existing
+        if isinstance(v, dict) and (v.get("id") or v.get("videoId"))
+        and not str(v.get("publishedAt") or "").strip()
+    ]
+    if missing_ids:
+        urls = [f"https://www.youtube.com/watch?v={video_id}" for video_id in missing_ids]
+        command = [
+            "yt-dlp", "--skip-download", "--dump-json", "--ignore-errors",
+            "--no-warnings", "--no-playlist", *urls,
+        ]
+        try:
+            result = subprocess.run(command, check=False, capture_output=True, text=True, timeout=1800)
+            recovered = 0
+            for line in result.stdout.splitlines():
+                try:
+                    entry = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                video_id = str(entry.get("id") or "")
+                upload_date = entry.get("upload_date") or ""
+                if video_id in missing_ids and len(upload_date) == 8 and upload_date.isdigit():
+                    discovered.setdefault(video_id, {})["publishedAt"] = f"{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:8]}"
+                    recovered += 1
+            print(f"Detailed metadata retry: recovered dates for {recovered}/{len(missing_ids)} previously undated videos")
+            if result.returncode != 0:
+                print("WARNING: yt-dlp returned a non-zero status during detailed metadata retry")
+        except Exception as exc:
+            print(f"WARNING: detailed metadata retry failed: {type(exc).__name__}: {exc}")
+
     added = 0
     for video_id, metadata in discovered.items():
         old = by_id.get(video_id)
