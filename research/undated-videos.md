@@ -35,27 +35,27 @@
 | MEZxDXNvDTE | 説明ベタが遠隔で指示するとこうなる【爆弾解除マニュアル - Keep Talking and Nobody Explodes実況】 | 2022-01-21 | 公開日確認済み。出典: https://www.youtube.com/watch?v=MEZxDXNvDTE |
 | KR1mGbM9fkw | 永田クンの「コラボカフェ」があったら…　こんなメニュー、どうですか？プレゼン | 2026-01-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=KR1mGbM9fkw |
 | IhhnUsHT1BM | 同僚の苦手な切り干し大根を克服させてあげよう！友達だもんね！ | 2021-10-05 | 公開日確認済み。出典: https://www.youtube.com/watch?v=IhhnUsHT1BM |
-| HUnPp5lO4xQ | 納豆嫌いを克服する方法を見つけました | 未確認 | タグ未確認 |
+| HUnPp5lO4xQ | 納豆嫌いを克服する方法を見つけました | 2020-09-25 | 公開日確認済み。出典: https://www.youtube.com/watch?v=HUnPp5lO4xQ |
 | G6l8fp6k9tU | 大喜利のお題に"味"で回答するゲームがヤバすぎる | 未確認 | タグ未確認 |
 | FEm774Sdcyw | 【全員正解はダメ】あえて数人だけが当てられる名前をつけよう！『メイメイ』！ | 2021-01-12 | 公開日確認済み。出典: https://www.youtube.com/watch?v=FEm774Sdcyw |
-| Ea1Afaalebo | クッキングパパ乱心!?「ホワイトすき焼き」を作ってみたらヤベッッッッッッ | 未確認 | タグ未確認 |
+| Ea1Afaalebo | クッキングパパ乱心!?「ホワイトすき焼き」を作ってみたらヤベッッッッッッ | 2021-11-06 | 公開日確認済み。出典: https://www.youtube.com/watch?v=Ea1Afaalebo |
 | D8Yw8pg3trE | 【Kevin's English Roomコラボ】英語のカッコいいネーミング対決！ | 2023-11-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=D8Yw8pg3trE |
 | CHFusuIY-hU | 【ウソでっせ!? TV】ゲストのお悩みを嘘で解決SP！人気俳優K号泣!? | 未確認 | タグ未確認 |
 | BpimntZ7JPA | 【セブンイレブン】二郎系"豚ラーメン"アレンジ王決定戦 | 2019-07-05 | 公開日確認済み。出典: https://www.youtube.com/watch?v=BpimntZ7JPA |
 | AU3k3Vm7AqY | ▲△▲△▲△コンビニおにぎり 焼きおにぎり化計画▲△▲△▲△ | 2021-09-18 | 公開日確認済み。出典: https://www.youtube.com/watch?v=AU3k3Vm7AqY |
-| 9KQ9z5W8vAU | 【魔改造山手線ゲーム】我々、このゲームを流行らせたいんです | 未確認 | タグ未確認 |
+| 9KQ9z5W8vAU | 【魔改造山手線ゲーム】我々、このゲームを流行らせたいんです | 2021-05-14 | 公開日確認済み。出典: https://www.youtube.com/watch?v=9KQ9z5W8vAU |
 | 9ED5UXkn_u0 | 【逆焼き肉】注文を逆から頼む焼き肉は盛り上がるのか？！ | 2024-08-27 | 公開日確認済み。出典: https://www.youtube.com/watch?v=9ED5UXkn_u0 |
 | 8hSEu1QsHqc | 【魔改造】ひとりだけお題を知らない山手線ゲームが白熱した！ | 未確認 | タグ未確認 |
 | 5yViG5q_fHA | ドライブ楽しすぎワロタwwwﾌﾟｯﾌﾟ----wwww | 未確認 | タグ未確認 |
 | 5tjfED7tJSU | 【言ってたらダメ】『SOUL'd OUT』のラッパー Diggy MO'が言ってないこと選手権！ | 2020-01-28 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5tjfED7tJSU |
 | 5ogjdRxUrUQ | 偽カールおじさんが偽カールを持ってやってきたぞ！！【勘でカールを作る】 | 2024-09-27 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5ogjdRxUrUQ |
 | 5kITfEQc7Fc | 大発見！じゃんけんを仕切ると200倍もおもしろくなる | 2021-02-02 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5kITfEQc7Fc |
-| 2lN4Kq4ly3M | 知ってるけど食べたことないものを決めるグランプリ【知ってるけど食べたことないですねぇ‐1グランプリ】 | 未確認 | タグ未確認 |
+| 2lN4Kq4ly3M | 知ってるけど食べたことないものを決めるグランプリ【知ってるけど食べたことないですねぇ‐1グランプリ】 | 2024-10-02 | 公開日確認済み。出典: https://www.youtube.com/watch?v=2lN4Kq4ly3M |
 | 0jUNiwNRvZY | 言語感覚おかしい人とゲームをしたらすごいことになった【勇者ヌルポコ】 | 2021-02-19 | 公開日確認済み。出典: https://www.youtube.com/watch?v=0jUNiwNRvZY |
 | 0TYBx2Yvv-8 | これはもうもんじゃじゃない！ もんじゃ焼きドラフト選手権！ | 未確認 | タグ未確認 |
 | -sxR7Sf5jmQ | 【マクドナルド】美味すぎるマック最強カスタムレシピがヤバい | 未確認 | タグ未確認 |
 | -C2YO0dZh4s | 【幽白】おじさん大はしゃぎの幽☆遊☆白書カルトクイズ大会！！ | 未確認 | タグ未確認 |
 
 初回対象: 52本
-公開日を補完: 33本
-未確認: 19本
+公開日を補完: 37本
+未確認: 15本
