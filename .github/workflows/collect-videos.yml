@@ -2,7 +2,6 @@ name: Collect YouTube video metadata
 on:
   push:
     branches: ["main"]
-    paths:
   schedule:
     - cron: "23 2 * * *"
   workflow_dispatch:
