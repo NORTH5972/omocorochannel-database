@@ -148,13 +148,13 @@ def get_official_archive_dates():
         parser = ArticleParser()
         parser.feed(html)
         for block in parser.blocks:
-            serialized = " ".join(
-                str(item[2].get("href", "")) + " " + str(item[2].get("datetime", "")) + " " +
-                str(item[2].get("content", "")) + " " + str(item[2].get("class", "")) + " " +
-                (str(item[2]) if item[0] == "start" else str(item[2])) + " " +
-                (str(item[2]) if item[0] == "data" else "")
-                for item in block
-            )
+            serialized_parts = []
+            for kind, tag, value in block:
+                if kind == "start":
+                    serialized_parts.append(str(value))
+                elif kind == "data":
+                    serialized_parts.append(str(value))
+            serialized = " ".join(serialized_parts)
             # Match embedded or linked YouTube videos to the post's published date.
             ids = set(re.findall(
                 r"(?:youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})",
