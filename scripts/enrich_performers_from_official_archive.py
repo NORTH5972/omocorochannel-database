@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 DATA = Path("data/videos.json")
 BASE = "https://omocoro.jp/video/"
-MAX_PAGES = 120
+MAX_PAGES = 121
 KNOWN_NAMES = [
     "ダ・ヴィンチ・恐山", "モンゴルナイフ", "山口むつお", "みくのしん",
     "マンスーン", "ヤスミノ", "ギャラクシー", "ARuFa", "かまど",
