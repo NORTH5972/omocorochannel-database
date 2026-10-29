@@ -88,6 +88,100 @@ def get_rss_listing():
     return found
 
 
+
+def get_official_archive_dates():
+    """Recover dates from Omocoro's official video archive, matching YouTube IDs."""
+    import re
+    from html.parser import HTMLParser
+    from urllib.parse import urljoin
+
+    base = "https://omocoro.jp/video/"
+    seen_pages = set()
+    found = {}
+    queue = [base]
+
+    class ArticleParser(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.article_depth = 0
+            self.article = []
+            self.blocks = []
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == "article":
+                if self.article_depth == 0:
+                    self.article = []
+                self.article_depth += 1
+            if self.article_depth:
+                self.article.append(("start", tag, attrs))
+
+        def handle_endtag(self, tag):
+            if self.article_depth:
+                self.article.append(("end", tag, {}))
+                if tag == "article":
+                    self.article_depth -= 1
+                    if self.article_depth == 0:
+                        self.blocks.append(self.article)
+                        self.article = []
+
+        def handle_data(self, data):
+            if self.article_depth:
+                self.article.append(("data", "", data))
+
+    # The archive is paginated; cap the crawl to avoid an unbounded request loop.
+    while queue and len(seen_pages) < 80:
+        page = queue.pop(0)
+        if page in seen_pages:
+            continue
+        seen_pages.add(page)
+        try:
+            req = urllib.request.Request(
+                page, headers={"User-Agent": "Mozilla/5.0 (compatible; OmocoroVideoIndex/1.0)"}
+            )
+            with urllib.request.urlopen(req, timeout=25) as response:
+                html = response.read().decode("utf-8", errors="replace")
+        except Exception as exc:
+            print(f"Official archive page unavailable ({page}): {type(exc).__name__}")
+            continue
+
+        parser = ArticleParser()
+        parser.feed(html)
+        for block in parser.blocks:
+            serialized = " ".join(
+                str(item[2].get("href", "")) + " " + str(item[2].get("datetime", "")) + " " +
+                str(item[2].get("content", "")) + " " + str(item[2].get("class", "")) + " " +
+                (str(item[2]) if item[0] == "start" else str(item[2])) + " " +
+                (str(item[2]) if item[0] == "data" else "")
+                for item in block
+            )
+            # Match embedded or linked YouTube videos to the post's published date.
+            ids = set(re.findall(
+                r"(?:youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})",
+                serialized
+            ))
+            dates = re.findall(r"(?:datetime|content|data-date)[\"'=:\s]+([12]\d{3})[-./]([01]\d)[-./]([0-3]\d)", serialized)
+            if not dates:
+                dates = re.findall(r"([12]\d{3})\.([01]\d)\.([0-3]\d)", serialized)
+            if dates:
+                year, month, day = dates[0]
+                published = f"{year}-{month}-{day}"
+                for video_id in ids:
+                    found[video_id] = published
+
+        # Follow the site's explicit next-page link when present.
+        next_links = re.findall(r'<a\b[^>]*\brel=["\']next["\'][^>]*\bhref=["\']([^"\']+)', html, re.I)
+        if not next_links:
+            next_links = re.findall(r'<link\b[^>]*\brel=["\']next["\'][^>]*\bhref=["\']([^"\']+)', html, re.I)
+        if next_links:
+            next_page = urljoin(page, next_links[0])
+            if next_page not in seen_pages:
+                queue.append(next_page)
+
+    print(f"Official Omocoro archive: checked {len(seen_pages)} pages; matched {len(found)} YouTube IDs")
+    return found
+
+
 def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     existing = load_existing()
@@ -146,6 +240,22 @@ def main():
         except Exception:
             failed += 1
     print(f"Detailed metadata retry: recovered dates for {recovered}/{len(missing_ids)} previously undated videos; unresolved: {failed}")
+
+
+    # The official Omocoro archive may retain publication dates even when YouTube
+    # no longer exposes them through yt-dlp. Only accept dates tied to a matching ID.
+    try:
+        official_dates = get_official_archive_dates()
+        official_recovered = 0
+        for video_id, published in official_dates.items():
+            old = by_id.get(video_id)
+            if old is not None and not str(old.get("publishedAt") or "").strip():
+                old["publishedAt"] = published
+                old["source"] = "オモコロ公式動画アーカイブ"
+                official_recovered += 1
+        print(f"Official archive date recovery: {official_recovered} previously undated videos")
+    except Exception as exc:
+        print(f"WARNING: official archive date recovery failed: {type(exc).__name__}: {exc}")
 
     added = 0
     for video_id, metadata in discovered.items():
