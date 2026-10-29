@@ -1,4 +1,4 @@
-name: Enrich performers from Omocoro official archive
+name: Enrich performers from Omocoro official archive diagnostic
 on:
   push:
     branches: ["main"]
