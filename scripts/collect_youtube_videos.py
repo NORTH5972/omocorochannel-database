@@ -155,8 +155,8 @@ def get_official_archive_dates():
                 found[video_id] = f"{year}-{month}-{day}"
 
         # Find rel=next regardless of whether href appears before or after rel.
-        next_tag = re.search(r'<(?:a|link)\b(?=[^>]*\brel=["\']next["\'])([^>]*)>', html, re.I)
-        next_links = re.findall(r'\bhref=["\']([^"\']+)["\']', next_tag.group(1), re.I) if next_tag else []
+        next_tag = re.search(r"<(?:a|link)\b(?=[^>]*\brel=['\"]next['\"])([^>]*)>", html, re.I)
+        next_links = re.findall(r"\bhref=['\"]([^'\"]+)['\"]", next_tag.group(1), re.I) if next_tag else []
         if next_links:
             next_page = urljoin(page, next_links[0])
             if next_page not in seen_pages:
