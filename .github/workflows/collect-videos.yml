@@ -3,8 +3,6 @@ on:
   push:
     branches: ["main"]
     paths:
-      - ".github/workflows/collect-videos.yml"
-      - "scripts/collect_youtube_videos.py"
   schedule:
     - cron: "23 2 * * *"
   workflow_dispatch:
