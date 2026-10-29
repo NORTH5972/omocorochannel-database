@@ -4,7 +4,7 @@
 
 | YouTube ID | 動画タイトル | 公開日 | 状況・出典 |
 |---|---|---|---|
-| zxtERDaFGfc | 【ドッキリ】『ガチンコ！』の名言「神輿やないねんから」と同じ状況に遭ったら、人は何と言うのか？ | 未確認 | タグ未確認 |
+| zxtERDaFGfc | 【ドッキリ】『ガチンコ！』の名言「神輿やないねんから」と同じ状況に遭ったら、人は何と言うのか？ | 2022-11-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=zxtERDaFGfc |
 | vbvmUHhFZtI | 庶民の味を見分けろ！ 低レベル格付け王が今夜決定！ | 2021-05-01 | 公開日確認済み。出典: https://www.youtube.com/watch?v=vbvmUHhFZtI |
 | v9VWQvSA9l4 | 【10分でわかる】謎の仮面男　ダ･ヴィンチ･恐山はこんな人 | 2019-06-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=v9VWQvSA9l4 |
 | tZ68J5xXukc | 【10分でわかる】バーグハンバーグバーグの副社長　永田智はこんな人 | 2019-07-02 | 公開日確認済み。出典: https://www.youtube.com/watch?v=tZ68J5xXukc |
@@ -40,13 +40,13 @@
 | FEm774Sdcyw | 【全員正解はダメ】あえて数人だけが当てられる名前をつけよう！『メイメイ』！ | 2021-01-12 | 公開日確認済み。出典: https://www.youtube.com/watch?v=FEm774Sdcyw |
 | Ea1Afaalebo | クッキングパパ乱心!?「ホワイトすき焼き」を作ってみたらヤベッッッッッッ | 2021-11-06 | 公開日確認済み。出典: https://www.youtube.com/watch?v=Ea1Afaalebo |
 | D8Yw8pg3trE | 【Kevin's English Roomコラボ】英語のカッコいいネーミング対決！ | 2023-11-11 | 公開日確認済み。出典: https://www.youtube.com/watch?v=D8Yw8pg3trE |
-| CHFusuIY-hU | 【ウソでっせ!? TV】ゲストのお悩みを嘘で解決SP！人気俳優K号泣!? | 未確認 | タグ未確認 |
+| CHFusuIY-hU | 【ウソでっせ!? TV】ゲストのお悩みを嘘で解決SP！人気俳優K号泣!? | 2020-03-17 | 公開日確認済み。出典: https://omocoro.jp/weekly/?week=2020-03-16 |
 | BpimntZ7JPA | 【セブンイレブン】二郎系"豚ラーメン"アレンジ王決定戦 | 2019-07-05 | 公開日確認済み。出典: https://www.youtube.com/watch?v=BpimntZ7JPA |
 | AU3k3Vm7AqY | ▲△▲△▲△コンビニおにぎり 焼きおにぎり化計画▲△▲△▲△ | 2021-09-18 | 公開日確認済み。出典: https://www.youtube.com/watch?v=AU3k3Vm7AqY |
 | 9KQ9z5W8vAU | 【魔改造山手線ゲーム】我々、このゲームを流行らせたいんです | 2021-05-14 | 公開日確認済み。出典: https://www.youtube.com/watch?v=9KQ9z5W8vAU |
 | 9ED5UXkn_u0 | 【逆焼き肉】注文を逆から頼む焼き肉は盛り上がるのか？！ | 2024-08-27 | 公開日確認済み。出典: https://www.youtube.com/watch?v=9ED5UXkn_u0 |
 | 8hSEu1QsHqc | 【魔改造】ひとりだけお題を知らない山手線ゲームが白熱した！ | 未確認 | タグ未確認 |
-| 5yViG5q_fHA | ドライブ楽しすぎワロタwwwﾌﾟｯﾌﾟ----wwww | 未確認 | タグ未確認 |
+| 5yViG5q_fHA | ドライブ楽しすぎワロタwwwﾌﾟｯﾌﾟ----wwww | 2021-05-21 | 公開日確認済み。出典: https://omocoro.jp/weekly/?week=2021-05-20 |
 | 5tjfED7tJSU | 【言ってたらダメ】『SOUL'd OUT』のラッパー Diggy MO'が言ってないこと選手権！ | 2020-01-28 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5tjfED7tJSU |
 | 5ogjdRxUrUQ | 偽カールおじさんが偽カールを持ってやってきたぞ！！【勘でカールを作る】 | 2024-09-27 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5ogjdRxUrUQ |
 | 5kITfEQc7Fc | 大発見！じゃんけんを仕切ると200倍もおもしろくなる | 2021-02-02 | 公開日確認済み。出典: https://www.youtube.com/watch?v=5kITfEQc7Fc |
@@ -57,5 +57,5 @@
 | -C2YO0dZh4s | 【幽白】おじさん大はしゃぎの幽☆遊☆白書カルトクイズ大会！！ | 2021-04-09 | 公開日確認済み。出典: https://www.youtube.com/watch?v=-C2YO0dZh4s |
 
 初回対象: 52本
-公開日を補完: 43本
-未確認: 9本
+公開日を補完: 46本
+未確認: 6本
