@@ -94,16 +94,41 @@ function randomToken() {
   crypto.getRandomValues(bytes);
   return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
 }
+
+function derLength(length) {
+  if (length < 128) return Uint8Array.of(length);
+  const bytes = [];
+  while (length > 0) { bytes.unshift(length & 255); length >>>= 8; }
+  return Uint8Array.of(0x80 | bytes.length, ...bytes);
+}
+function derElement(tag, content) {
+  const len = derLength(content.length);
+  const out = new Uint8Array(1 + len.length + content.length);
+  out[0] = tag; out.set(len, 1); out.set(content, 1 + len.length);
+  return out;
+}
+function wrapPkcs1AsPkcs8(pkcs1) {
+  const version = Uint8Array.of(0x02, 0x01, 0x00);
+  const algorithm = Uint8Array.of(0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00);
+  const octet = derElement(0x04, pkcs1);
+  const content = new Uint8Array(version.length + algorithm.length + octet.length);
+  content.set(version, 0); content.set(algorithm, version.length); content.set(octet, version.length + algorithm.length);
+  return derElement(0x30, content);
+}
+
 async function githubAppToken(env) {
   const now = Math.floor(Date.now() / 1000);
   const enc = value => btoa(unescape(encodeURIComponent(value))).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
   const header = enc(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
   const payload = enc(JSON.stringify({ iat: now - 30, exp: now + 540, iss: env.GITHUB_APP_ID }));
   const message = header + '.' + payload;
-  const pem = env.GITHUB_APP_PRIVATE_KEY.replace(/-----BEGIN PRIVATE KEY-----|-----END PRIVATE KEY-----|\s/g, '');
+  const keyText = env.GITHUB_APP_PRIVATE_KEY.trim();
+  const pem = keyText.replace(/-----BEGIN [^-]+-----|-----END [^-]+-----|\s/g, '');
   const binary = atob(pem);
   const der = Uint8Array.from(binary, c => c.charCodeAt(0));
-  const key = await crypto.subtle.importKey('pkcs8', der, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['sign']);
+  // GitHub App private keys are commonly PKCS#1; WebCrypto expects PKCS#8.
+  const pkcs8 = keyText.includes('BEGIN RSA PRIVATE KEY') ? wrapPkcs1AsPkcs8(der) : der;
+  const key = await crypto.subtle.importKey('pkcs8', pkcs8, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['sign']);
   const signature = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', key, new TextEncoder().encode(message));
   const sig = btoa(String.fromCharCode.apply(null, Array.from(new Uint8Array(signature)))).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
   const jwt = message + '.' + sig;
