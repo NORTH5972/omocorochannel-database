@@ -98,6 +98,7 @@ def get_official_archive_dates():
     base = "https://omocoro.jp/video/"
     seen_pages = set()
     found = {}
+    found_titles = []
     queue = [base]
 
     class ArticleParser(HTMLParser):
@@ -149,12 +150,15 @@ def get_official_archive_dates():
         parser.feed(html)
         for block in parser.blocks:
             serialized_parts = []
+            text_parts = []
             for kind, tag, value in block:
                 if kind == "start":
                     serialized_parts.append(str(value))
                 elif kind == "data":
                     serialized_parts.append(str(value))
+                    text_parts.append(str(value))
             serialized = " ".join(serialized_parts)
+            article_text = " ".join(" ".join(text_parts).split())
             # Match embedded or linked YouTube videos to the post's published date.
             ids = set(re.findall(
                 r"(?:youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})",
@@ -168,6 +172,8 @@ def get_official_archive_dates():
                 published = f"{year}-{month}-{day}"
                 for video_id in ids:
                     found[video_id] = published
+                if article_text:
+                    found_titles.append((article_text, published))
 
         # Follow the site's explicit next-page link when present.
         next_links = re.findall(r'<a\b[^>]*\brel=["\']next["\'][^>]*\bhref=["\']([^"\']+)', html, re.I)
@@ -179,7 +185,7 @@ def get_official_archive_dates():
                 queue.append(next_page)
 
     print(f"Official Omocoro archive: checked {len(seen_pages)} pages; matched {len(found)} YouTube IDs")
-    return found
+    return found, found_titles
 
 
 def main():
@@ -245,7 +251,7 @@ def main():
     # The official Omocoro archive may retain publication dates even when YouTube
     # no longer exposes them through yt-dlp. Only accept dates tied to a matching ID.
     try:
-        official_dates = get_official_archive_dates()
+        official_dates, official_title_dates = get_official_archive_dates()
         official_recovered = 0
         for video_id, published in official_dates.items():
             old = by_id.get(video_id)
@@ -253,6 +259,24 @@ def main():
                 old["publishedAt"] = published
                 old["source"] = "オモコロ公式動画アーカイブ"
                 official_recovered += 1
+
+        # Some archive cards link to Omocoro articles rather than embedding YouTube.
+        # In that case, match the exact existing video title against visible card text.
+        import re
+        def title_key(value):
+            return re.sub(r"[^0-9a-zぁ-んァ-ヶ一-龠ー]", "", str(value or "").lower())
+        for old in by_id.values():
+            if str(old.get("publishedAt") or "").strip():
+                continue
+            key = title_key(old.get("title"))
+            if len(key) < 8:
+                continue
+            for article_text, published in official_title_dates:
+                if key in title_key(article_text):
+                    old["publishedAt"] = published
+                    old["source"] = "オモコロ公式動画アーカイブ（タイトル照合）"
+                    official_recovered += 1
+                    break
         print(f"Official archive date recovery: {official_recovered} previously undated videos")
     except Exception as exc:
         print(f"WARNING: official archive date recovery failed: {type(exc).__name__}: {exc}")
