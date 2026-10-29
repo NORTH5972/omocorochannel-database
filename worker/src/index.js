@@ -136,7 +136,7 @@ async function saveVideos(request, env) {
   for (const u of body.updates) {
     if (!u || typeof u.id !== 'string' || seen.has(u.id)) return json({ error: '動画IDが不正または重複しています。' }, 400);
     seen.add(u.id);
-    if (typeof u.publishedAt !== 'string' || (u.publishedAt !== '' && !/^\d{4}-\d{2}-\d{2}$/.test(u.publishedAt))) return json({ error: '公開日はYYYY-MM-DD形式か空欄にしてください。' }, 400);
+    if (typeof u.publishedAt !== 'string' || (u.publishedAt !== '' && (!/^\d{4}-\d{2}-\d{2}$/.test(u.publishedAt) || !validDate(u.publishedAt)))) return json({ error: '公開日は実在する日付のYYYY-MM-DD形式か空欄にしてください。' }, 400);
     if (!Array.isArray(u.performers) || u.performers.length > 20 || u.performers.some(p => typeof p !== 'string' || p.length > 80)) return json({ error: '出演者の入力形式が不正です。' }, 400);
   }
   const token = await githubAppToken(env);
