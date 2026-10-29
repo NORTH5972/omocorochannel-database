@@ -20,10 +20,10 @@
 | eVddShRQ-aA | 【新キャラ予想】ポケモンを全く知らない男が想像した新ポケモンがヤバすぎる | 未確認 | タグ未確認 |
 | eB5bsjJhxpM | 【ガンバレ受験生】ドアの前にお夜食を置いて我が子を応援しよう！！ | 2021-01-15 | 公開日確認済み。出典: https://www.youtube.com/watch?v=eB5bsjJhxpM |
 | cxkdmrKX0WE | 餅の「最強の食べ方」を見つけました！ | 2020-01-03 | 公開日確認済み。出典: https://www.youtube.com/watch?v=cxkdmrKX0WE |
-| cuBoGYAsI2Y | 集めた文字で面白い言葉を作れ！「ぽぺぷぴっぱ」！ | 未確認 | タグ未確認 |
+| cuBoGYAsI2Y | 集めた文字で面白い言葉を作れ！「ぽぺぷぴっぱ」！ | 2021-10-09 | 公開日確認済み。出典: https://www.youtube.com/watch?v=cuBoGYAsI2Y |
 | cW4sHvf_jgk | 絶対に変な物語が完成してしまうゲーム『じゃれ本』がヤバすぎる | 2021-01-16 | 公開日確認済み。出典: https://www.youtube.com/watch?v=cW4sHvf_jgk |
 | bhZP9YTE5bk | 擬音に合ったシチュエーションを後から考えるゲームが面白かった！！ | 2019-12-10 | 公開日確認済み。出典: https://www.youtube.com/watch?v=bhZP9YTE5bk |
-| acZ2fR6Vsvk | ﾋﾟﾁｬﾝﾋﾟﾁｬﾝ…おはようございます！！水のジジイがやってきました！！ | 未確認 | タグ未確認 |
+| acZ2fR6Vsvk | ﾋﾟﾁｬﾝﾋﾟﾁｬﾝ…おはようございます！！水のジジイがやってきました！！ | 2025-01-17 | 公開日確認済み。出典: https://www.youtube.com/watch?v=acZ2fR6Vsvk |
 | aAlJAiwA-ao | ‪【特別編③】オモコロチャンネル未公開シーン集『盛り盛り伝言ゲーム編』！ | 2020-06-05 | 公開日確認済み。出典: https://www.youtube.com/watch?v=aAlJAiwA-ao |
 | a4edTh-S918 | 【10分でわかる】下町のスティーブ・ジョブズ　マンスーンって何者？ | 2019-08-14 | 公開日確認済み。出典: https://omocoro.jp/writer/arufa/page/77/ |
 | _xmtMC1PcTg | 答えを知らない人が正解になるクイズ『無知王』 | 2021-10-22 | 公開日確認済み。出典: https://www.youtube.com/watch?v=_xmtMC1PcTg |
@@ -57,5 +57,5 @@
 | -C2YO0dZh4s | 【幽白】おじさん大はしゃぎの幽☆遊☆白書カルトクイズ大会！！ | 2021-04-09 | 公開日確認済み。出典: https://www.youtube.com/watch?v=-C2YO0dZh4s |
 
 初回対象: 52本
-公開日を補完: 46本
-未確認: 6本
+公開日を補完: 48本
+未確認: 4本
