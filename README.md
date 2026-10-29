@@ -48,3 +48,8 @@ https://north5972.github.io/omocorochannel-database/
 ## 注意
 
 動画本編・サムネイル等の権利は各権利者に帰属します。YouTubeのデータ取得・表示は、YouTubeの利用規約とDeveloper Policiesを確認したうえで運用してください。
+
+
+## 管理者向け編集画面（準備中）
+
+公開日・出演者を管理画面から直接編集するためのCloudflare Worker構成を `worker/` に追加しました。GitHub AppとCloudflare Worker/KVの初期設定が必要です。手順と必要な設定値は [worker/README.md](worker/README.md) を参照してください。秘密情報はリポジトリに登録しないでください。
