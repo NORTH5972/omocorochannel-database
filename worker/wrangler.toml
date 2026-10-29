@@ -1,6 +1,6 @@
 name = "omocoro-video-admin"
 main = "src/index.js"
-compatibility_date = "2026-10-30"
+compatibility_date = "2026-10-28"
 
 [assets]
 directory = "./public"
