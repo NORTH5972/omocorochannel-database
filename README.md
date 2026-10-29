@@ -2,51 +2,49 @@
 
 オモコロチャンネルの動画を、タイトル・出演者・主役・ジャンル・エンディングで探すためのファン制作サイトです。公式サイトではありません。
 
-## GitHub Pagesで公開する
+## 公開サイト
 
-1. GitHubリポジトリの **Settings → Pages** を開きます。
-2. **Build and deployment → Source** を **GitHub Actions** に設定します。
-3. Actions タブで **Deploy static site to GitHub Pages** の実行を確認します。
-4. 成功後、Pagesに表示されるURLからサイトを開きます。
+https://north5972.github.io/omocorochannel-database/
 
-このリポジトリには、mainブランチへのpush時に自動デプロイするワークフローを含みます。
+## 現在のデータ
 
-## 動画データの追加
+- YouTubeの公開動画一覧から取得した動画メタデータを登録しています（初回収集では1,339件）。
+- タイトル、公開日、動画URL、サムネイルURLを自動取得します。
+- 出演者・主役・ジャンル・エンディングは自動推測せず、確認済みデータのみ登録する方針です。未確認の分類項目は空欄です。
+- 自動収集は毎日実行し、新しい動画を追加します。過去に削除・非公開になった動画や、YouTube側で一覧に出ない動画は含まれない場合があります。
 
-`data/videos.json` に動画オブジェクトを配列として追加します。データを変更してmainへpushすると、公開サイトに反映されます。
+## データの編集
+
+動画データは `data/videos.json`、エンディング情報は `data/ending-screens.json` にあります。
+
+動画オブジェクトの主な項目：
 
 ```json
-[
-  {
-    "videoId": "YouTubeの動画ID",
-    "title": "動画タイトル",
-    "youtubeUrl": "https://www.youtube.com/watch?v=動画ID",
-    "thumbnailUrl": "サムネイルURL",
-    "publishedAt": "YYYY-MM-DD",
-    "description": "説明",
-    "performers": ["出演者A", "出演者B"],
-    "protagonists": ["主役の人物"],
-    "genres": ["ジャンル"],
-    "endingScreen": "ending-01"
-  }
-]
+{
+  "id": "YouTubeの動画ID",
+  "title": "動画タイトル",
+  "url": "https://www.youtube.com/watch?v=動画ID",
+  "thumbnailUrl": "https://i.ytimg.com/vi/動画ID/hqdefault.jpg",
+  "publishedAt": "YYYY-MM-DD",
+  "description": "",
+  "performers": [],
+  "protagonists": [],
+  "genres": [],
+  "endingScreen": "",
+  "reviewStatus": "タグ未確認"
+}
 ```
 
-- `performers`: 出演者全員
-- `protagonists`: 動画の中心となる人物。複数可。主役がいなければ空配列または省略
-- `genres`: ジャンル。複数可
+- `performers`: 動画に出演している人物全員
+- `protagonists`: 動画の中心となる人物。複数可。主役がいない場合は空配列
+- `genres`: 動画のジャンル。複数可
 - `endingScreen`: `data/ending-screens.json` の `id` と対応
+- `reviewStatus`: 分類情報の確認状態
 
-`data/ending-screens.json` の例：
+## 自動収集
 
-```json
-[
-  {
-    "id": "ending-01",
-    "name": "エンディング名",
-    "description": "画面の特徴など"
-  }
-]
-```
+`.github/workflows/collect-videos.yml` が毎日、YouTubeチャンネルの公開動画一覧を取得します。動画本編はダウンロードせず、タイトルやURLなどのメタデータのみを記録します。
 
-現在、データは空です。実際の動画情報を確認して登録してください。動画ファイル自体は再配布せず、動画へのリンクを使用します。サムネイルやYouTubeデータの取得・表示については、YouTubeの利用規約およびDeveloper Policiesを確認してください。
+## 注意
+
+動画本編・サムネイル等の権利は各権利者に帰属します。YouTubeのデータ取得・表示は、YouTubeの利用規約とDeveloper Policiesを確認したうえで運用してください。
