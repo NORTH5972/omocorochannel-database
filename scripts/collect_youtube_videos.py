@@ -148,15 +148,15 @@ def get_official_archive_dates():
             r"(?:youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})",
             html
         ))
-        iso_dates = re.findall(r"(?:datetime|content|data-date)[\\"'=:\s]+([12]\d{3})[-./]([01]\d)[-./]([0-3]\d)", html)
+        iso_dates = re.findall(r"""(?:datetime|content|data-date)[\"'=:\s]+([12]\d{3})[-./]([01]\d)[-./]([0-3]\d)""", html)
         if iso_dates:
             year, month, day = iso_dates[0]
             for video_id in ids:
                 found[video_id] = f"{year}-{month}-{day}"
 
         # Find rel=next regardless of whether href appears before or after rel.
-        next_tag = re.search(r"<(?:a|link)\b(?=[^>]*\brel=['\"]next['\"])([^>]*)>", html, re.I)
-        next_links = re.findall(r"\bhref=['\"]([^'\"]+)['\"]", next_tag.group(1), re.I) if next_tag else []
+        next_tag = re.search(r"""<(?:a|link)\b(?=[^>]*\brel=["']next["'])([^>]*)>""", html, re.I)
+        next_links = re.findall(r"""\bhref=["']([^"']+)["']""", next_tag.group(1), re.I) if next_tag else []
         if next_links:
             next_page = urljoin(page, next_links[0])
             if next_page not in seen_pages:
