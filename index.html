@@ -14,7 +14,11 @@
 <main>
 <div class="notice">非公式のファン制作データベースです。オモコロおよび関係者の公式サイトではありません。動画本編はYouTubeでご覧ください。</div>
 <div class="data-status" id="databaseStatus" aria-live="polite">登録データを読み込んでいます...</div>
-<section id="playlistSection" class="playlist-section">
+<div class="tabs" role="tablist" aria-label="表示内容">
+<button type="button" id="videosTab" role="tab" aria-selected="true" aria-controls="videoSection">動画</button>
+<button type="button" id="playlistsTab" role="tab" aria-selected="false" aria-controls="playlistSection">再生リスト</button>
+</div>
+<section id="playlistSection" class="playlist-section hidden">
 <h2>公式再生リスト</h2>
 <p class="playlist-note">オモコロチャンネル公式YouTubeの公開再生リストです。カードを選ぶと収録動画を表示します。</p>
 <div id="playlistGrid" class="playlist-grid"><div class="empty">再生リストを読み込んでいます...</div></div>
@@ -55,6 +59,20 @@ function renderEndings(){const list=endings.map(e=>({...e,used:videos.filter(v=>
 function updateDataStatus(){const dated=videos.filter(v=>/^\d{4}-\d{2}-\d{2}$/.test(String(v.publishedAt||""))).length;const tagged=videos.filter(v=>arr(v.performers||v.people||v.cast).length>0).length;const mains=videos.filter(v=>arr(v.protagonists||v.mainCharacters||(v.protagonist?[v.protagonist]:[])).length>0).length;const genreCount=videos.filter(v=>arr(v.genres||(v.genre?[v.genre]:[])).length>0).length;const endingCount=videos.filter(v=>Boolean(v.endingScreen||v.endingScreenId||v.ending)).length;$("databaseStatus").innerHTML="<strong>登録動画："+videos.length.toLocaleString("ja-JP")+"件</strong><br>出演者候補："+tagged.toLocaleString("ja-JP")+"件 / 主役："+mains.toLocaleString("ja-JP")+"件 / ジャンル："+genreCount.toLocaleString("ja-JP")+"件 / エンディング："+endingCount.toLocaleString("ja-JP")+"件<br><span class=\"muted\">出演者は公式アーカイブとの照合候補です。主役・ジャンル・エンディングは今後追加します。</span>"}
 function refresh(){refreshFilters();renderVideos();updateDataStatus()}
 ["q","person","protagonist","genre","ending","year","month","sort"].forEach(id=>$(id).addEventListener(id==="q"?"input":"change",()=>{currentPage=1;renderVideos()}));$("pagination").addEventListener("click",event=>{const button=event.target.closest("button[data-page]");if(!button||button.disabled)return;currentPage=Number(button.dataset.page);renderVideos();$("videoList").scrollIntoView({behavior:"smooth",block:"start"})});$("reset").addEventListener("click",()=>{["q","person","protagonist","genre","ending","year","month"].forEach(id=>$(id).value="");$("sort").value="new";currentPage=1;renderVideos()});
+function switchMainTab(tab){
+ const showVideos=tab==="videos";
+ $("videosTab").setAttribute("aria-selected",showVideos?"true":"false");
+ $("playlistsTab").setAttribute("aria-selected",showVideos?"false":"true");
+ $("videoSection").classList.toggle("hidden",!showVideos);
+ $("playlistSection").classList.toggle("hidden",showVideos);
+ if(showVideos&&currentPlaylist!==null){
+  currentPlaylist=null;
+  $("playlistDetail").classList.add("hidden");
+  $("playlistGrid").classList.remove("hidden");
+ }
+}
+$("videosTab").addEventListener("click",()=>switchMainTab("videos"));
+$("playlistsTab").addEventListener("click",()=>switchMainTab("playlists"));
 function renderPlaylists(){
  const grid=$("playlistGrid");
  grid.innerHTML=playlists.length?playlists.map(p=>'<button type="button" class="playlist-card" data-playlist="'+esc(p.id)+'">'+(p.thumbnailUrl?'<img loading="lazy" src="'+esc(p.thumbnailUrl)+'" alt="">':'<div class="thumb">サムネイル未登録</div>')+'<div class="playlist-card-body"><h3>'+esc(p.title)+'</h3><p>'+Number(p.videoCount||arr(p.videos).length)+' 本の動画</p></div></button>').join(""):'<div class="empty">公開再生リストが見つかりませんでした。</div>';
@@ -66,8 +84,8 @@ function renderPlaylistVideos(){
  $("playlistVideoList").innerHTML=items.length?items.map(v=>'<article class="playlist-video">'+(v.thumbnailUrl?'<img loading="lazy" src="'+esc(v.thumbnailUrl)+'" alt="">':'<div class="thumb">サムネイル未登録</div>')+'<div><h3><a href="'+esc(v.url||("https://www.youtube.com/watch?v="+encodeURIComponent(v.id)))+'" target="_blank" rel="noopener noreferrer">'+esc(v.title||"タイトル未登録")+'</a></h3><p>YouTubeで動画を見る</p></div></article>').join(""):'<div class="empty">この再生リストに表示できる動画はありません。</div>';
  $("playlistPagination").innerHTML=list.length>PAGE_SIZE?'<button type="button" data-playlist-page="'+(playlistPage-1)+'" '+(playlistPage===1?'disabled':'')+'>前へ</button><span>'+playlistPage+' / '+totalPages+' ページ</span><button type="button" data-playlist-page="'+(playlistPage+1)+'" '+(playlistPage===totalPages?'disabled':'')+'>次へ</button>':(list.length?'<span>'+list.length+' 本</span>':'');
 }
-$("playlistGrid").addEventListener("click",event=>{const card=event.target.closest("button[data-playlist]");if(!card)return;currentPlaylist=card.dataset.playlist;playlistPage=1;const p=playlists.find(x=>x.id===currentPlaylist);$("playlistDetailTitle").textContent=p?.title||"再生リスト";$("playlistDetailDescription").textContent=p?.description||"";$("playlistGrid").classList.add("hidden");$("playlistDetail").classList.remove("hidden");$("videoSection").classList.add("hidden");renderPlaylistVideos();$("playlistSection").scrollIntoView({behavior:"smooth",block:"start"})});
-$("playlistBack").addEventListener("click",()=>{currentPlaylist=null;$("playlistDetail").classList.add("hidden");$("playlistGrid").classList.remove("hidden");$("videoSection").classList.remove("hidden")});
+$("playlistGrid").addEventListener("click",event=>{const card=event.target.closest("button[data-playlist]");if(!card)return;currentPlaylist=card.dataset.playlist;playlistPage=1;const p=playlists.find(x=>x.id===currentPlaylist);$("playlistDetailTitle").textContent=p?.title||"再生リスト";$("playlistDetailDescription").textContent=p?.description||"";$("playlistGrid").classList.add("hidden");$("playlistDetail").classList.remove("hidden");renderPlaylistVideos();$("playlistSection").scrollIntoView({behavior:"smooth",block:"start"})});
+$("playlistBack").addEventListener("click",()=>{currentPlaylist=null;$("playlistDetail").classList.add("hidden");$("playlistGrid").classList.remove("hidden")});
 $("playlistPagination").addEventListener("click",event=>{const button=event.target.closest("button[data-playlist-page]");if(!button||button.disabled)return;playlistPage=Number(button.dataset.playlistPage);renderPlaylistVideos()});
 async function init(){const status=$("databaseStatus");if(status)status.textContent="動画データを取得しています...";try{const timeout=(url)=>Promise.race([fetch(url+"?v=20261030",{cache:"no-store"}),new Promise((_,reject)=>setTimeout(()=>reject(new Error("読み込みがタイムアウトしました")),20000))]);const [v,e,p]=await Promise.all([timeout("./data/videos.json"),timeout("./data/ending-screens.json"),timeout("./data/playlists.json")]);if(!v.ok)throw Error("videos.json: HTTP "+v.status);if(!e.ok)throw Error("ending-screens.json: HTTP "+e.status);if(!p.ok)throw Error("playlists.json: HTTP "+p.status);videos=arr(await v.json());endings=arr(await e.json());playlists=arr(await p.json());renderPlaylists();refresh()}catch(err){$("resultCount").textContent="データの読み込みに失敗しました";$("videoList").innerHTML='<div class="empty">データの読み込みに失敗しました。20秒ほど待っても改善しない場合は、再読み込みしてください。</div>';if($("databaseStatus"))$("databaseStatus").innerHTML="<strong>データを読み込めませんでした</strong><br>"+esc(err&&err.message?err.message:"原因不明のエラー");console.error("Database loading error:",err)}}
 init();
