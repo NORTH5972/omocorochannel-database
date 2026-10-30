@@ -14,7 +14,7 @@ export default {
       if (url.pathname.startsWith('/api/')) {
         const session = await getSession(request, env);
         if (!session) return json({ error: 'ログインしてください。' }, 401);
-        if (session.login.toLowerCase() !== env.ADMIN_GITHUB_LOGIN.toLowerCase()) return json({ error: '編集権限がありません。' }, 403);
+        if (session.login.toLowerCase() !== 'NORTH5972'.toLowerCase()) return json({ error: '編集権限がありません。' }, 403);
         if (url.pathname === '/api/me' && request.method === 'GET') return json({ login: session.login });
         if (url.pathname === '/api/videos' && request.method === 'GET') return getVideos(env);
         if (url.pathname === '/api/save' && request.method === 'POST') {
@@ -70,7 +70,7 @@ async function callback(request, env) {
   const userResponse = await fetch('https://api.github.com/user', { headers: { 'Authorization': 'Bearer ' + tokenData.access_token, 'Accept': 'application/vnd.github+json', 'User-Agent': 'omocoro-video-admin' } });
   const user = await userResponse.json();
   if (!userResponse.ok || !user.login) return new Response('GitHubアカウントを確認できませんでした。', { status: 401 });
-  if (String(user.login).toLowerCase() !== String(env.ADMIN_GITHUB_LOGIN).toLowerCase()) {
+  if (String(user.login).toLowerCase() !== String('NORTH5972').toLowerCase()) {
     return new Response('このGitHubアカウントには編集権限がありません。', { status: 403, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
   }
   const sid = randomToken();
