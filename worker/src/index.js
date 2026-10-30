@@ -3,6 +3,8 @@ const BRANCH = 'main';
 const DATA_PATH = 'data/videos.json';
 const COOKIE = 'omoco_admin_session';
 const SESSION_TTL = 8 * 60 * 60;
+const GITHUB_APP_ID = '5534046';
+const GITHUB_INSTALLATION_ID = '176711559';
 
 export default {
   async fetch(request, env) {
@@ -120,7 +122,7 @@ async function githubAppToken(env) {
   const now = Math.floor(Date.now() / 1000);
   const enc = value => btoa(unescape(encodeURIComponent(value))).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
   const header = enc(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const payload = enc(JSON.stringify({ iat: now - 30, exp: now + 540, iss: env.GITHUB_APP_ID }));
+  const payload = enc(JSON.stringify({ iat: now - 30, exp: now + 540, iss: GITHUB_APP_ID }));
   const message = header + '.' + payload;
   const keyText = env.GITHUB_APP_PRIVATE_KEY.trim();
   const pem = keyText.replace(/-----BEGIN [^-]+-----|-----END [^-]+-----|\s/g, '');
@@ -132,7 +134,7 @@ async function githubAppToken(env) {
   const signature = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', key, new TextEncoder().encode(message));
   const sig = btoa(String.fromCharCode.apply(null, Array.from(new Uint8Array(signature)))).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
   const jwt = message + '.' + sig;
-  const response = await fetch('https://api.github.com/app/installations/' + encodeURIComponent(env.GITHUB_INSTALLATION_ID) + '/access_tokens', {
+  const response = await fetch('https://api.github.com/app/installations/' + encodeURIComponent(GITHUB_INSTALLATION_ID) + '/access_tokens', {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + jwt, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'omocoro-video-admin', 'Content-Type': 'application/json' },
     body: JSON.stringify({ repositories: ['omocorochannel-database'], permissions: { contents: 'write' } })
