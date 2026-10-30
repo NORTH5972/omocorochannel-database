@@ -34,7 +34,7 @@
 <footer>掲載データはファンによる整理を目的としています。動画の権利は各権利者に帰属します。<br>データは確認できた範囲で登録し、誤りがあれば修正します。</footer>
 <script>
 const $=id=>document.getElementById(id);let videos=[],endings=[],currentPage=1;const PAGE_SIZE=30;
-const arr=v=>Array.isArray(v)?v:[];const unique=xs=>[...new Set(xs.flatMap(x=>arr(x)))].filter(Boolean).sort((a,b)=>String(a).localeCompare(String(b),"ja"));
+const arr=v=>Array.isArray(v)?v:[];const performerPriority=["ARuFa","ダ・ヴィンチ・恐山","永田","加藤 亮","原宿"];const unique=xs=>[...new Set(xs.flatMap(x=>arr(x)))].filter(Boolean).sort((a,b)=>{const ai=performerPriority.indexOf(a),bi=performerPriority.indexOf(b);if(ai!==-1||bi!==-1)return (ai===-1?999:ai)-(bi===-1?999:bi);return String(a).localeCompare(String(b),"ja")});
 function fillSelect(id,values,label){const el=$(id),old=el.value;el.innerHTML='<option value="">すべて</option>'+values.map(v=>'<option>'+esc(v)+'</option>').join("");if(values.includes(old))el.value=old}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function linkFor(v){return v.youtubeUrl||v.url|| (v.videoId?'https://www.youtube.com/watch?v='+encodeURIComponent(v.videoId):'')}
