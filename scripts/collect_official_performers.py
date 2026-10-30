@@ -64,18 +64,20 @@ def main():
             path = urlparse(absolute).path
             found_id = video_id(absolute)
             if found_id:
-                if current and names:
-                    credits[current] = names
-                current, names = found_id, []
+                # A card can link to the same video multiple times (thumbnail,
+                # title, etc.). Do not reset its credits until a different video
+                # starts; otherwise only the final one or two author links survive.
+                if found_id != current:
+                    if current and names:
+                        credits[current] = list(dict.fromkeys(names))
+                    current, names = found_id, []
             elif current and "/writer/" in path and label and label not in names:
                 names.append(label)
-            # Do not reset on intervening links: archive cards may contain category,
-            # author, or utility links between the credited people. Keep collecting
-            # /writer/ links until the next YouTube video link starts a new card.
+
             if re.search(r"/video/page/\d+/?$", path) and absolute not in seen and absolute not in pages:
                 pages.append(absolute)
         if current and names:
-            credits[current] = names
+            credits[current] = list(dict.fromkeys(names))
         print(f"Scanned {page}; credited videos so far: {len(credits)}")
 
     data = json.loads(OUTPUT.read_text(encoding="utf-8"))
