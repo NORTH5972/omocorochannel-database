@@ -25,10 +25,14 @@ jobs:
         run: python -m pip install --upgrade yt-dlp
       - name: Collect full channel archive and latest RSS entries
         run: python scripts/collect_youtube_videos.py
-      - name: Collect official channel playlists\n        env:\n          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}\n        run: python scripts/collect_youtube_playlists.py\n      - name: Commit updated index
+      - name: Collect official channel playlists
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/collect_youtube_playlists.py
+      - name: Commit updated index
         run: |
-          if git diff --quiet -- data/videos.json; then
-            echo "No new video metadata."
+          if git diff --quiet -- data/videos.json data/playlists.json; then
+            echo "No new video or playlist metadata."
             exit 0
           fi
           git config user.name "github-actions[bot]"
