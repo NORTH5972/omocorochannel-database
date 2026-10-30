@@ -69,8 +69,9 @@ def main():
                 current, names = found_id, []
             elif current and "/writer/" in path and label and label not in names:
                 names.append(label)
-            elif current and path and "/video/page/" not in path:
-                current, names = None, []
+            # Do not reset on intervening links: archive cards may contain category,
+            # author, or utility links between the credited people. Keep collecting
+            # /writer/ links until the next YouTube video link starts a new card.
             if re.search(r"/video/page/\d+/?$", path) and absolute not in seen and absolute not in pages:
                 pages.append(absolute)
         if current and names:
