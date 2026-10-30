@@ -47,7 +47,7 @@ async function login(request, env) {
   await env.SESSIONS.put('state:' + state, '1', { expirationTtl: 600 });
   const callbackUrl = new URL('/auth/callback', request.url).toString();
   const target = new URL('https://github.com/login/oauth/authorize');
-  target.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
+  target.searchParams.set('client_id', 'Iv23liBRWSqaFKy57lHA');
   target.searchParams.set('redirect_uri', callbackUrl);
   target.searchParams.set('scope', 'read:user');
   target.searchParams.set('state', state);
@@ -63,7 +63,7 @@ async function callback(request, env) {
   const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-    body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code })
+    body: JSON.stringify({ client_id: 'Iv23liBRWSqaFKy57lHA', client_secret: env.GITHUB_CLIENT_SECRET, code })
   });
   const tokenData = await tokenResponse.json();
   if (!tokenResponse.ok || !tokenData.access_token) return new Response('GitHub認証に失敗しました。', { status: 401 });
