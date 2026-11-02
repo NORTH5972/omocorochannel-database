@@ -7,7 +7,7 @@ import urllib.request
 from pathlib import Path
 
 spec_path = Path(__file__).with_name("collect_youtube_performers.py")
-namespace = {}
+namespace = {"__name__": "collector_module"}
 exec(compile(spec_path.read_text(encoding="utf-8"), str(spec_path), "exec"), namespace)
 extract_performers = namespace["extract_performers"]
 
