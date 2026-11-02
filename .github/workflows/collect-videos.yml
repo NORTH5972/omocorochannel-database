@@ -28,6 +28,10 @@ jobs:
         run: python -m pip install --upgrade yt-dlp
       - name: Test YouTube description performer parser
         run: python scripts/test_youtube_performer_parser.py
+      - name: Verify known videos against YouTube descriptions
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/test_multiple_video_performers.py
       - name: Collect full channel archive and latest RSS entries
         run: python scripts/collect_youtube_videos.py
       - name: Collect performers from YouTube descriptions
