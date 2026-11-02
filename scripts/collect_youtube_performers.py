@@ -95,6 +95,13 @@ def main():
                     empty_section.append(video_id)
                 else:
                     missing_section.append(video_id)
+                # Do not keep legacy archive-derived names as if they were
+                # description-verified. Preserve independently sourced/manual
+                # entries, but explicitly flag archive-only values for review.
+                if by_id[video_id].get("performerSource") == "オモコロ公式動画アーカイブ":
+                    by_id[video_id]["performers"] = []
+                    by_id[video_id]["performerSource"] = "YouTube概要欄に出演者欄なし（要確認）"
+                    by_id[video_id]["reviewStatus"] = "出演者：概要欄に記載なし・要確認"
                 continue
 
             # Replace old values only when the YouTube description has a valid,
