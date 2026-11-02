@@ -1,61 +1,63 @@
 #!/usr/bin/env python3
-"""Validate performer extraction against several YouTube descriptions; never writes videos.json."""
-import json, os, re, urllib.parse, urllib.request
-VIDEO_IDS = ["7coRRt9H-ZQ", "R5V5SBGQtCs", "3mYn8dfviPc"]
+"""Live regression test: known videos must match manually verified description credits."""
+import json
+import os
+import urllib.parse
+import urllib.request
+from pathlib import Path
 
-def extract(description):
-    marker = "【出演者】"
-    if marker not in description:
-        return None
-    section = description.split(marker, 1)[1]
-    section = re.split(r"\n\s*【[^】]+】", section, maxsplit=1)[0]
-    names = []
-    for line in section.splitlines():
-        if "→" not in line:
-            continue
-        name = line.split("→", 1)[0].strip()
-        name = re.sub(r"^[\s・、]+|[\s・、]+$", "", name)
-        if name and name not in names:
-            names.append(name)
-    return names
+spec_path = Path(__file__).with_name("collect_youtube_performers.py")
+namespace = {}
+exec(compile(spec_path.read_text(encoding="utf-8"), str(spec_path), "exec"), namespace)
+extract_performers = namespace["extract_performers"]
+
+EXPECTED = {
+    "7coRRt9H-ZQ": ["永田", "原宿", "ダ･ヴィンチ･恐山", "ARuFa", "加藤"],
+    "R5V5SBGQtCs": ["永田", "原宿", "ダ･ヴィンチ･恐山", "ARuFa", "加藤", "ヤスミノ", "かんち"],
+    "3mYn8dfviPc": ["永田", "原宿", "ダ･ヴィンチ･恐山", "ARuFa", "加藤"],
+}
+
 
 def main():
     key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     if not key:
         raise SystemExit("YOUTUBE_API_KEY is not set.")
-    params = urllib.parse.urlencode({"part":"snippet", "id":",".join(VIDEO_IDS), "key":key})
-    req = urllib.request.Request("https://www.googleapis.com/youtube/v3/videos?" + params, headers={"User-Agent":"OmocoroVideoDatabase/1.0"})
-    with urllib.request.urlopen(req, timeout=30) as response:
+    ids = list(EXPECTED)
+    query = urllib.parse.urlencode({"part": "snippet", "id": ",".join(ids), "key": key})
+    request = urllib.request.Request(
+        "https://www.googleapis.com/youtube/v3/videos?" + query,
+        headers={"User-Agent": "OmocoroVideoDatabase/1.0"},
+    )
+    with urllib.request.urlopen(request, timeout=45) as response:
         payload = json.loads(response.read().decode("utf-8"))
-    found = {item["id"]: item for item in payload.get("items", [])}
-    problems = []
-    print("VIDEOS_REQUESTED:", len(VIDEO_IDS))
-    print("VIDEOS_RETURNED:", len(found))
-    for video_id in VIDEO_IDS:
-        item = found.get(video_id)
+    returned = {item["id"]: item for item in payload.get("items", [])}
+    failures = []
+    print("VIDEOS_REQUESTED:", len(ids))
+    print("VIDEOS_RETURNED:", len(returned))
+    for video_id, expected in EXPECTED.items():
+        item = returned.get(video_id)
         print("\nVIDEO_ID:", video_id)
-        if not item:
+        if item is None:
             print("STATUS: NOT_RETURNED_BY_API")
-            problems.append(video_id)
+            failures.append(video_id)
             continue
         snippet = item.get("snippet") or {}
-        description = snippet.get("description") or ""
-        names = extract(description)
+        actual = extract_performers(snippet.get("description") or "")
         print("TITLE:", snippet.get("title", ""))
-        print("DESCRIPTION_RETRIEVED:", "yes" if description else "no_or_empty")
-        if names is None:
-            print("PERFORMER_SECTION: NOT_FOUND")
-            print("PERFORMERS_JSON: null")
-            problems.append(video_id)
+        print("DESCRIPTION_RETRIEVED:", "yes" if snippet.get("description") else "no_or_empty")
+        print("PERFORMERS_COUNT:", len(actual) if actual else 0)
+        print("PERFORMERS_JSON:", json.dumps(actual, ensure_ascii=False))
+        if actual != expected:
+            print("EXPECTED_JSON:", json.dumps(expected, ensure_ascii=False))
+            failures.append(video_id)
+            print("CHECK: FAIL")
         else:
-            print("PERFORMER_SECTION: FOUND")
-            print("PERFORMERS_COUNT:", len(names))
-            print("PERFORMERS_JSON:", json.dumps(names, ensure_ascii=False))
-            if not names:
-                problems.append(video_id)
-    print("\nTEST_RESULT:", "PASS" if not problems else "REVIEW_REQUIRED")
-    if problems:
-        print("VIDEOS_REQUIRING_REVIEW:", json.dumps(problems))
+            print("CHECK: PASS")
+    print("\nTEST_RESULT:", "PASS" if not failures else "REVIEW_REQUIRED")
+    if failures:
+        print("FAILED_VIDEO_IDS:", json.dumps(failures, ensure_ascii=False))
+        raise SystemExit(1)
+
 
 if __name__ == "__main__":
     main()
