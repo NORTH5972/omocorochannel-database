@@ -226,6 +226,11 @@ def main():
     print(f"Detailed metadata retry: recovered dates for {recovered}/{len(missing_ids)} previously undated videos; unresolved: {failed}")
 
 
+    import re
+    def title_key(value):
+        return re.sub(r"[^0-9a-zぁ-んァ-ヶ一-龠ー]", "", str(value or "").lower())
+
+    official_title_dates = []
     # The official Omocoro archive may retain publication dates even when YouTube
     # no longer exposes them through yt-dlp. Only accept dates tied to a matching ID.
     try:
