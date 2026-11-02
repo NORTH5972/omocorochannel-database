@@ -263,6 +263,8 @@ def main():
     except Exception as exc:
         print(f"WARNING: official archive date recovery failed: {type(exc).__name__}: {exc}")
 
+    official_title_dates = locals().get("official_title_dates", [])
+
     added = 0
     for video_id, metadata in discovered.items():
         old = by_id.get(video_id)
@@ -278,6 +280,36 @@ def main():
         old.setdefault("genres", [])
         old.setdefault("endingScreen", "")
         old.setdefault("reviewStatus", "タグ未確認")
+
+    # Apply exact-title matches from the official Omocoro archive LAST.
+    # Channel listing/RSS metadata can contain a different date; it must not
+    # overwrite a date independently verified against the official archive.
+    official_title_corrections = 0
+    for old in by_id.values():
+        title = str(old.get("title") or "")
+        key = title_key(title)
+        if len(key) < 8:
+            continue
+        candidates = []
+        for archive_text, published, date_pos in official_title_dates:
+            normalized_text = title_key(archive_text)
+            if key not in normalized_text:
+                continue
+            title_pos = archive_text.find(title)
+            if title_pos < 0:
+                continue
+            distance = abs(title_pos - date_pos)
+            if distance <= 500:
+                candidates.append((distance, published))
+        if not candidates:
+            continue
+        candidates.sort(key=lambda item: item[0])
+        verified_date = candidates[0][1]
+        if str(old.get("publishedAt") or "") != verified_date:
+            old["publishedAt"] = verified_date
+            old["source"] = "オモコロ公式動画アーカイブ（タイトル照合）"
+            official_title_corrections += 1
+    print(f"Official archive title-date verification: corrected {official_title_corrections} dates")
 
     videos = sorted(by_id.values(), key=lambda v: (str(v.get("publishedAt", "")), str(v.get("id", ""))), reverse=True)
     OUTPUT.write_text(json.dumps(videos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
