@@ -7,6 +7,7 @@ on:
       - "scripts/collect_youtube_videos.py"
       - "scripts/collect_youtube_performers.py"
       - "scripts/test_youtube_performer_parser.py"
+      - "scripts/test_multiple_video_performers.py"
       - "scripts/collect_youtube_playlists.py"
       - "index.html"
   schedule:
