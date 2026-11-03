@@ -49,6 +49,8 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python scripts/collect_youtube_playlists.py
       - name: Commit updated index
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           if git diff --quiet -- data/videos.json data/playlists.json; then
             echo "No new video or playlist metadata."
