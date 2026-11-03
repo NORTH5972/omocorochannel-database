@@ -15,6 +15,11 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+
+# Prevent scheduled/manual/push collection runs from writing the same JSON files concurrently.
+concurrency:
+  group: omocoro-video-metadata-collection
+  cancel-in-progress: false
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -53,5 +58,21 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/videos.json data/playlists.json
           git commit -m "Collect YouTube archive and playlist metadata"
-          git pull --rebase origin main
+          # Rebase against any changes made while collection was running. If the
+          # generated JSON conflicts, rerun collection on the newest main instead
+          # of attempting to merge two independently generated snapshots.
+          if ! git pull --rebase origin main; then
+            git rebase --abort
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/collect_youtube_videos.py
+            python scripts/collect_youtube_performers.py
+            python scripts/collect_youtube_playlists.py
+            if git diff --quiet -- data/videos.json data/playlists.json; then
+              echo "No metadata changes after refreshing from latest main."
+              exit 0
+            fi
+            git add data/videos.json data/playlists.json
+            git commit -m "Collect YouTube archive and playlist metadata (refreshed)"
+          fi
           git push
