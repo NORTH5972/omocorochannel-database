@@ -785,7 +785,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 223,
+    "videoCount": 225,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2090,6 +2090,12 @@
         "url": "https://www.youtube.com/watch?v=7coRRt9H-ZQ"
       },
       {
+        "id": "8vxJfCaxPyE",
+        "title": "日常に潜む「小さな絶望」を語り合おう……！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/8vxJfCaxPyE/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=8vxJfCaxPyE"
+      },
+      {
         "id": "yWMl5WioYQs",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2108,12 +2114,6 @@
         "url": "https://www.youtube.com/watch?v=Xt5s3-QcUhU"
       },
       {
-        "id": "8vxJfCaxPyE",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=8vxJfCaxPyE"
-      },
-      {
         "id": "judQQaaX67s",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2124,6 +2124,18 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=VbNHHAiKw1Q"
+      },
+      {
+        "id": "tDbgD8PPkf4",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
+      },
+      {
+        "id": "juXo5h6ESCM",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
       }
     ]
   },
@@ -2591,8 +2603,8 @@
       },
       {
         "id": "8vxJfCaxPyE",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "日常に潜む「小さな絶望」を語り合おう……！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/8vxJfCaxPyE/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=8vxJfCaxPyE"
       }
     ]
@@ -11551,7 +11563,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/NrFBk7ACpGI/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc9d96z7pRqojT7KdYpBh-3h",
-    "videoCount": 13,
+    "videoCount": 15,
     "videos": [
       {
         "id": "NrFBk7ACpGI",
@@ -11630,6 +11642,18 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=sk-VSvZ1WfI"
+      },
+      {
+        "id": "tDbgD8PPkf4",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
+      },
+      {
+        "id": "juXo5h6ESCM",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
       }
     ]
   },
@@ -11889,7 +11913,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/lINnWB3Wb60/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc8OkJcyTfsO533k26Bm1sUK",
-    "videoCount": 137,
+    "videoCount": 139,
     "videos": [
       {
         "id": "lINnWB3Wb60",
@@ -12712,6 +12736,18 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=Xt5s3-QcUhU"
+      },
+      {
+        "id": "tDbgD8PPkf4",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
+      },
+      {
+        "id": "juXo5h6ESCM",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
       }
     ]
   },
@@ -13583,8 +13619,8 @@
       },
       {
         "id": "8vxJfCaxPyE",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "日常に潜む「小さな絶望」を語り合おう……！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/8vxJfCaxPyE/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=8vxJfCaxPyE"
       }
     ]
