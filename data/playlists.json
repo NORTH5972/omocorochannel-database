@@ -1,5 +1,33 @@
 [
   {
+    "id": "PLbH4ZrpZ8kK8",
+    "title": "マンガ当てガンマン",
+    "description": "",
+    "thumbnailUrl": "https://i.ytimg.com/vi/PEFniOPIoXk/maxresdefault.jpg",
+    "url": "https://www.youtube.com/playlist?list=PLbH4ZrpZ8kK8",
+    "videoCount": 3,
+    "videos": [
+      {
+        "id": "PEFniOPIoXk",
+        "title": "【決闘】ページを指定しマンガのタイトルを撃ち抜け！！マンガ当てガンマン",
+        "thumbnailUrl": "https://i.ytimg.com/vi/PEFniOPIoXk/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=PEFniOPIoXk"
+      },
+      {
+        "id": "-TimbJaqcMo",
+        "title": "マンガを1コマだけ読ませて相手の作品をビタ当てしろ！！マンガ当てガンマン！！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/-TimbJaqcMo/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=-TimbJaqcMo"
+      },
+      {
+        "id": "pOTo5JIvc84",
+        "title": "渾身のセリフを撃ち抜け！！俺たちマンガガンマン！！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/pOTo5JIvc84/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=pOTo5JIvc84"
+      }
+    ]
+  },
+  {
     "id": "PLY6f2Zb7Z5Wc",
     "title": "シッコマン イン ザ パーティ",
     "description": "",
@@ -785,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 225,
+    "videoCount": 227,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2096,6 +2124,12 @@
         "url": "https://www.youtube.com/watch?v=8vxJfCaxPyE"
       },
       {
+        "id": "juXo5h6ESCM",
+        "title": "話が長い悪ふざけ中年・原宿のニセモノを暴け！【なりすましクイズ】",
+        "thumbnailUrl": "https://i.ytimg.com/vi/juXo5h6ESCM/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
+      },
+      {
         "id": "yWMl5WioYQs",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2132,10 +2166,16 @@
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
       },
       {
-        "id": "juXo5h6ESCM",
+        "id": "qzr57kxMmv8",
         "title": "Private video",
         "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
+        "url": "https://www.youtube.com/watch?v=qzr57kxMmv8"
+      },
+      {
+        "id": "2doMrHbUuwQ",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=2doMrHbUuwQ"
       }
     ]
   },
@@ -2859,10 +2899,16 @@
     "id": "PLb2_XmxSyzc-OCPJaHMUTaU9ORemy0d-m",
     "title": "見分け王",
     "description": "",
-    "thumbnailUrl": "https://i.ytimg.com/vi/TqSr8XidQpQ/maxresdefault.jpg",
+    "thumbnailUrl": "https://i.ytimg.com/vi/T0DS0vEPyn0/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-OCPJaHMUTaU9ORemy0d-m",
-    "videoCount": 3,
+    "videoCount": 4,
     "videos": [
+      {
+        "id": "T0DS0vEPyn0",
+        "title": "見た目だけで「あんこ」が入ってない食べ物を見抜けるか？！今夜決定！あんこ見分け王",
+        "thumbnailUrl": "https://i.ytimg.com/vi/T0DS0vEPyn0/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=T0DS0vEPyn0"
+      },
       {
         "id": "TqSr8XidQpQ",
         "title": "見た目だけで抹茶味とワサビ味を見極められんのか？！【ピスタチオ味かい！】",
@@ -11638,6 +11684,12 @@
         "url": "https://www.youtube.com/watch?v=OBuU6pcFw64"
       },
       {
+        "id": "juXo5h6ESCM",
+        "title": "話が長い悪ふざけ中年・原宿のニセモノを暴け！【なりすましクイズ】",
+        "thumbnailUrl": "https://i.ytimg.com/vi/juXo5h6ESCM/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
+      },
+      {
         "id": "sk-VSvZ1WfI",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -11648,12 +11700,6 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
-      },
-      {
-        "id": "juXo5h6ESCM",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
       }
     ]
   },
@@ -11913,7 +11959,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/lINnWB3Wb60/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc8OkJcyTfsO533k26Bm1sUK",
-    "videoCount": 139,
+    "videoCount": 140,
     "videos": [
       {
         "id": "lINnWB3Wb60",
@@ -12726,6 +12772,12 @@
         "url": "https://www.youtube.com/watch?v=v8mGxSAJ71E"
       },
       {
+        "id": "juXo5h6ESCM",
+        "title": "話が長い悪ふざけ中年・原宿のニセモノを暴け！【なりすましクイズ】",
+        "thumbnailUrl": "https://i.ytimg.com/vi/juXo5h6ESCM/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
+      },
+      {
         "id": "sk-VSvZ1WfI",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -12744,10 +12796,10 @@
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
       },
       {
-        "id": "juXo5h6ESCM",
+        "id": "qzr57kxMmv8",
         "title": "Private video",
         "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=juXo5h6ESCM"
+        "url": "https://www.youtube.com/watch?v=qzr57kxMmv8"
       }
     ]
   },
