@@ -138,10 +138,23 @@ def get_official_archive_dates():
         # The archive cards are not consistently wrapped in <article> tags.
         # Record each visible date with the full page text and its position so
         # missing video titles can be matched to nearby dates.
+        # Normalize visible text while retaining offsets into the normalized string.
+        # HTML often splits a title across text nodes or inserts whitespace between
+        # inline elements, so exact raw-title matching is too brittle.
+        normalized_chars = []
+        raw_to_normalized = {}
+        for raw_index, char in enumerate(page_text):
+            if re.match(r"[0-9a-zぁ-んァ-ヶ一-龠ー]", char.lower()):
+                raw_to_normalized[raw_index] = len(normalized_chars)
+                normalized_chars.append(char.lower())
+        normalized_page_text = "".join(normalized_chars)
         dates = list(re.finditer(r"([12]\d{3})[.]([01]\d)[.]([0-3]\d)", page_text))
         for match in dates:
             year, month, day = match.groups()
-            found_titles.append((page_text, f"{year}-{month}-{day}", match.start()))
+            normalized_date_pos = sum(
+                1 for raw_index in raw_to_normalized if raw_index < match.start()
+            )
+            found_titles.append((normalized_page_text, f"{year}-{month}-{day}", normalized_date_pos))
 
         # Keep direct ID matching as a fallback if the archive embeds YouTube links.
         ids = set(re.findall(
@@ -257,7 +270,7 @@ def main():
             for archive_text, published, date_pos in official_title_dates:
                 if key not in title_key(archive_text):
                     continue
-                title_pos = archive_text.find(str(old.get("title") or ""))
+                title_pos = title_key(archive_text).find(key)
                 if title_pos < 0 or abs(title_pos - date_pos) > 500:
                     continue
                 old["publishedAt"] = published
@@ -297,10 +310,8 @@ def main():
             continue
         candidates = []
         for archive_text, published, date_pos in official_title_dates:
-            normalized_text = title_key(archive_text)
-            if key not in normalized_text:
-                continue
-            title_pos = archive_text.find(title)
+            normalized_text = archive_text
+            title_pos = normalized_text.find(key)
             if title_pos < 0:
                 continue
             distance = abs(title_pos - date_pos)
