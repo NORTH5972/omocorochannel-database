@@ -25,6 +25,7 @@
 <div id="playlistDetail" class="hidden">
 <div class="playlist-detail-head"><button type="button" class="playlist-back" id="playlistBack">← 再生リスト一覧</button><h2 id="playlistDetailTitle"></h2></div>
 <p id="playlistDetailDescription" class="playlist-detail-description"></p>
+<div class="toolbar"><label for="playlistSort">動画の並び順</label><select id="playlistSort" aria-label="再生リスト内の動画の並び順"><option value="new">公開日が新しい順</option><option value="playlist">再生リストの登録順</option></select></div>
 <div id="playlistVideoList" class="playlist-video-list"></div>
 <nav id="playlistPagination" class="playlist-pagination" aria-label="再生リスト動画のページ切り替え"></nav>
 </div>
@@ -93,16 +94,29 @@ function renderPlaylists(){
 }
 function renderPlaylistVideos(){
  const p=playlists.find(x=>x.id===currentPlaylist);if(!p)return;
- const list=arr(p.videos),totalPages=Math.max(1,Math.ceil(list.length/PAGE_SIZE));playlistPage=Math.min(playlistPage,totalPages);
+ const list=arr(p.videos).map((item,index)=>({item,index,video:videos.find(x=>(x.videoId||x.id)===item.id)}));
+ if($("playlistSort").value==="new"){
+  list.sort((a,b)=>{
+   const da=String(a.video?.publishedAt||"");
+   const db=String(b.video?.publishedAt||"");
+   if(da&&db&&da!==db)return db.localeCompare(da);
+   if(da&&!db)return -1;
+   if(!da&&db)return 1;
+   return a.index-b.index;
+  });
+ }else{
+  list.sort((a,b)=>a.index-b.index);
+ }
+ const totalPages=Math.max(1,Math.ceil(list.length/PAGE_SIZE));playlistPage=Math.min(playlistPage,totalPages);
  const start=(playlistPage-1)*PAGE_SIZE,items=list.slice(start,start+PAGE_SIZE);
- $("playlistVideoList").innerHTML=items.length?items.map(item=>{
-  const full=videos.find(x=>(x.videoId||x.id)===item.id);
-  return renderVideoCard(full||{title:item.title,thumbnailUrl:item.thumbnailUrl,url:item.url,videoId:item.id});
+ $("playlistVideoList").innerHTML=items.length?items.map(({item,video})=>{
+  return renderVideoCard(video||{title:item.title,thumbnailUrl:item.thumbnailUrl,url:item.url,videoId:item.id});
  }).join(""):'<div class="empty">この再生リストに表示できる動画はありません。</div>';
  $("playlistPagination").innerHTML=list.length>PAGE_SIZE?'<button type="button" data-playlist-page="'+(playlistPage-1)+'" '+(playlistPage===1?'disabled':'')+'>前へ</button><span>'+playlistPage+' / '+totalPages+' ページ</span><button type="button" data-playlist-page="'+(playlistPage+1)+'" '+(playlistPage===totalPages?'disabled':'')+'>次へ</button>':(list.length?'<span>'+list.length+' 本</span>':'');
 }
 $("playlistGrid").addEventListener("click",event=>{const card=event.target.closest("button[data-playlist]");if(!card)return;currentPlaylist=card.dataset.playlist;playlistPage=1;const p=playlists.find(x=>x.id===currentPlaylist);$("playlistDetailTitle").textContent=p?.title||"再生リスト";$("playlistDetailDescription").textContent=p?.description||"";$("playlistGrid").classList.add("hidden");$("playlistDetail").classList.remove("hidden");renderPlaylistVideos();$("playlistSection").scrollIntoView({behavior:"smooth",block:"start"})});
 $("playlistBack").addEventListener("click",()=>{currentPlaylist=null;$("playlistDetail").classList.add("hidden");$("playlistGrid").classList.remove("hidden")});
+$("playlistSort").addEventListener("change",()=>{playlistPage=1;renderPlaylistVideos()});
 $("playlistPagination").addEventListener("click",event=>{const button=event.target.closest("button[data-playlist-page]");if(!button||button.disabled)return;playlistPage=Number(button.dataset.playlistPage);renderPlaylistVideos()});
 async function init(){const status=$("databaseStatus");if(status)status.textContent="動画データを取得しています...";try{const timeout=(url)=>Promise.race([fetch(url+"?v=20261030",{cache:"no-store"}),new Promise((_,reject)=>setTimeout(()=>reject(new Error("読み込みがタイムアウトしました")),20000))]);const [v,e,p]=await Promise.all([timeout("./data/videos.json"),timeout("./data/ending-screens.json"),timeout("./data/playlists.json")]);if(!v.ok)throw Error("videos.json: HTTP "+v.status);if(!e.ok)throw Error("ending-screens.json: HTTP "+e.status);if(!p.ok)throw Error("playlists.json: HTTP "+p.status);videos=arr(await v.json());endings=arr(await e.json());playlists=arr(await p.json());renderPlaylists();refresh()}catch(err){$("resultCount").textContent="データの読み込みに失敗しました";$("videoList").innerHTML='<div class="empty">データの読み込みに失敗しました。20秒ほど待っても改善しない場合は、再読み込みしてください。</div>';if($("databaseStatus"))$("databaseStatus").innerHTML="<strong>データを読み込めませんでした</strong><br>"+esc(err&&err.message?err.message:"原因不明のエラー");console.error("Database loading error:",err)}}
 init();
