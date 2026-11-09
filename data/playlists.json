@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 227,
+    "videoCount": 229,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2176,6 +2176,18 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
+      },
+      {
+        "id": "eLwF5dAivYo",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=eLwF5dAivYo"
+      },
+      {
+        "id": "engQJg3RkiE",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=engQJg3RkiE"
       }
     ]
   },
@@ -9877,7 +9889,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/qtA3isWhcyA/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-yqzJ6JMiMnjG_7unF3TUL",
-    "videoCount": 55,
+    "videoCount": 56,
     "videos": [
       {
         "id": "qtA3isWhcyA",
@@ -10208,6 +10220,12 @@
         "title": "【ドッジボール×大喜利】競技をミックスした新スポーツで戦えば互角に戦えるはず！！",
         "thumbnailUrl": "https://i.ytimg.com/vi/iugeZvjzE0k/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=iugeZvjzE0k"
+      },
+      {
+        "id": "engQJg3RkiE",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=engQJg3RkiE"
       }
     ]
   },
@@ -11959,7 +11977,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/lINnWB3Wb60/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc8OkJcyTfsO533k26Bm1sUK",
-    "videoCount": 140,
+    "videoCount": 141,
     "videos": [
       {
         "id": "lINnWB3Wb60",
@@ -12800,6 +12818,12 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
+      },
+      {
+        "id": "eLwF5dAivYo",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=eLwF5dAivYo"
       }
     ]
   },
