@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 229,
+    "videoCount": 235,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2142,6 +2142,12 @@
         "url": "https://www.youtube.com/watch?v=2doMrHbUuwQ"
       },
       {
+        "id": "2dueBif8yvw",
+        "title": "いろんなシリアルをもっさもっさもっさもっさ食べる日",
+        "thumbnailUrl": "https://i.ytimg.com/vi/2dueBif8yvw/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=2dueBif8yvw"
+      },
+      {
         "id": "yWMl5WioYQs",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2188,6 +2194,36 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=engQJg3RkiE"
+      },
+      {
+        "id": "lxY5UE1lMGQ",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=lxY5UE1lMGQ"
+      },
+      {
+        "id": "cz3ypr0Fk_I",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=cz3ypr0Fk_I"
+      },
+      {
+        "id": "p71dA1V4xTU",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=p71dA1V4xTU"
+      },
+      {
+        "id": "aPh9enlZdS0",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=aPh9enlZdS0"
+      },
+      {
+        "id": "UiHx4WydjaU",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
       }
     ]
   },
@@ -2489,7 +2525,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/Xe40aAYIFmw/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-ui-HQ2WLh52ONUtbL6G5I",
-    "videoCount": 28,
+    "videoCount": 29,
     "videos": [
       {
         "id": "Xe40aAYIFmw",
@@ -2658,6 +2694,12 @@
         "title": "日常に潜む「小さな絶望」を語り合おう……！",
         "thumbnailUrl": "https://i.ytimg.com/vi/8vxJfCaxPyE/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=8vxJfCaxPyE"
+      },
+      {
+        "id": "aPh9enlZdS0",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=aPh9enlZdS0"
       }
     ]
   },
@@ -17129,7 +17171,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/seZhvfiGTaU/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc97qJE5jeXLUs4FXr75zOQM",
-    "videoCount": 336,
+    "videoCount": 337,
     "videos": [
       {
         "id": "seZhvfiGTaU",
@@ -19146,6 +19188,12 @@
         "title": "未来、お見せします。これがNEWナポリタンだーーーー！！！！！！",
         "thumbnailUrl": "https://i.ytimg.com/vi/7coRRt9H-ZQ/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=7coRRt9H-ZQ"
+      },
+      {
+        "id": "2dueBif8yvw",
+        "title": "いろんなシリアルをもっさもっさもっさもっさ食べる日",
+        "thumbnailUrl": "https://i.ytimg.com/vi/2dueBif8yvw/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=2dueBif8yvw"
       }
     ]
   },
