@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 235,
+    "videoCount": 233,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2160,16 +2160,10 @@
         "url": "https://www.youtube.com/watch?v=engQJg3RkiE"
       },
       {
-        "id": "yWMl5WioYQs",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=yWMl5WioYQs"
-      },
-      {
-        "id": "sk-VSvZ1WfI",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=sk-VSvZ1WfI"
+        "id": "p71dA1V4xTU",
+        "title": "これがオモコロの「完全体」の姿だ！！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/p71dA1V4xTU/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=p71dA1V4xTU"
       },
       {
         "id": "Xt5s3-QcUhU",
@@ -2206,12 +2200,6 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=cz3ypr0Fk_I"
-      },
-      {
-        "id": "p71dA1V4xTU",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=p71dA1V4xTU"
       },
       {
         "id": "aPh9enlZdS0",
@@ -11751,7 +11739,7 @@
       },
       {
         "id": "sk-VSvZ1WfI",
-        "title": "Private video",
+        "title": "Deleted video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=sk-VSvZ1WfI"
       },
@@ -12851,7 +12839,7 @@
       },
       {
         "id": "sk-VSvZ1WfI",
-        "title": "Private video",
+        "title": "Deleted video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=sk-VSvZ1WfI"
       },
