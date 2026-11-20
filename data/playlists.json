@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 233,
+    "videoCount": 234,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2178,6 +2178,12 @@
         "url": "https://www.youtube.com/watch?v=cz3ypr0Fk_I"
       },
       {
+        "id": "UiHx4WydjaU",
+        "title": "インターネットを生き抜いてきた男達が「本気」の仕事術をプレゼンします",
+        "thumbnailUrl": "https://i.ytimg.com/vi/UiHx4WydjaU/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
+      },
+      {
         "id": "Xt5s3-QcUhU",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2208,10 +2214,10 @@
         "url": "https://www.youtube.com/watch?v=lxY5UE1lMGQ"
       },
       {
-        "id": "UiHx4WydjaU",
+        "id": "pQBSlqqx7fg",
         "title": "Private video",
         "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
+        "url": "https://www.youtube.com/watch?v=pQBSlqqx7fg"
       }
     ]
   },
@@ -2425,8 +2431,8 @@
       },
       {
         "id": "UiHx4WydjaU",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "インターネットを生き抜いてきた男達が「本気」の仕事術をプレゼンします",
+        "thumbnailUrl": "https://i.ytimg.com/vi/UiHx4WydjaU/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
       }
     ]
@@ -10265,8 +10271,8 @@
       },
       {
         "id": "UiHx4WydjaU",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "インターネットを生き抜いてきた男達が「本気」の仕事術をプレゼンします",
+        "thumbnailUrl": "https://i.ytimg.com/vi/UiHx4WydjaU/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
       }
     ]
