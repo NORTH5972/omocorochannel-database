@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 234,
+    "videoCount": 235,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2184,6 +2184,12 @@
         "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
       },
       {
+        "id": "pQBSlqqx7fg",
+        "title": "意識の外にある【読んだことない雑誌】を買って世界を広げよう！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/pQBSlqqx7fg/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=pQBSlqqx7fg"
+      },
+      {
         "id": "Xt5s3-QcUhU",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2214,10 +2220,10 @@
         "url": "https://www.youtube.com/watch?v=lxY5UE1lMGQ"
       },
       {
-        "id": "pQBSlqqx7fg",
+        "id": "JPy9jeZeQRs",
         "title": "Private video",
         "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=pQBSlqqx7fg"
+        "url": "https://www.youtube.com/watch?v=JPy9jeZeQRs"
       }
     ]
   },
@@ -9931,7 +9937,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/qtA3isWhcyA/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-yqzJ6JMiMnjG_7unF3TUL",
-    "videoCount": 57,
+    "videoCount": 58,
     "videos": [
       {
         "id": "qtA3isWhcyA",
@@ -10274,6 +10280,12 @@
         "title": "インターネットを生き抜いてきた男達が「本気」の仕事術をプレゼンします",
         "thumbnailUrl": "https://i.ytimg.com/vi/UiHx4WydjaU/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=UiHx4WydjaU"
+      },
+      {
+        "id": "JPy9jeZeQRs",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=JPy9jeZeQRs"
       }
     ]
   },
@@ -14167,7 +14179,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/Fh4ZieMf4bU/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc8gAoHle5AoVoYfTIBsry1t",
-    "videoCount": 12,
+    "videoCount": 13,
     "videos": [
       {
         "id": "Fh4ZieMf4bU",
@@ -14240,6 +14252,12 @@
         "title": "QuizKnockに「クイズ」で勝ちたいから、得意分野で勝負するぜ!!!!",
         "thumbnailUrl": "https://i.ytimg.com/vi/zSlO2TbBhHo/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=zSlO2TbBhHo"
+      },
+      {
+        "id": "JPy9jeZeQRs",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=JPy9jeZeQRs"
       }
     ]
   },
