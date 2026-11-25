@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 237,
+    "videoCount": 241,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2202,6 +2202,12 @@
         "url": "https://www.youtube.com/watch?v=JPy9jeZeQRs"
       },
       {
+        "id": "yPn_DQfMrxM",
+        "title": "肉ジュワのハンバーグとサラダバーでお腹いっぱい！「ブロンコビリー」の凄さを教えます！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/yPn_DQfMrxM/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
+      },
+      {
         "id": "Xt5s3-QcUhU",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2226,16 +2232,34 @@
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
       },
       {
-        "id": "yPn_DQfMrxM",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
-      },
-      {
         "id": "ezWUjIpnP7A",
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=ezWUjIpnP7A"
+      },
+      {
+        "id": "G6yFXkR__7E",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=G6yFXkR__7E"
+      },
+      {
+        "id": "KAe2vcJGymU",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=KAe2vcJGymU"
+      },
+      {
+        "id": "XDL_dzw1x9U",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=XDL_dzw1x9U"
+      },
+      {
+        "id": "EGIY9oAeKsQ",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=EGIY9oAeKsQ"
       }
     ]
   },
@@ -9943,8 +9967,8 @@
       },
       {
         "id": "yPn_DQfMrxM",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "肉ジュワのハンバーグとサラダバーでお腹いっぱい！「ブロンコビリー」の凄さを教えます！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/yPn_DQfMrxM/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
       }
     ]
@@ -10307,8 +10331,8 @@
       },
       {
         "id": "yPn_DQfMrxM",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "肉ジュワのハンバーグとサラダバーでお腹いっぱい！「ブロンコビリー」の凄さを教えます！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/yPn_DQfMrxM/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
       }
     ]
@@ -12055,7 +12079,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/lINnWB3Wb60/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc8OkJcyTfsO533k26Bm1sUK",
-    "videoCount": 140,
+    "videoCount": 142,
     "videos": [
       {
         "id": "lINnWB3Wb60",
@@ -12896,6 +12920,18 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
+      },
+      {
+        "id": "XDL_dzw1x9U",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=XDL_dzw1x9U"
+      },
+      {
+        "id": "EGIY9oAeKsQ",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=EGIY9oAeKsQ"
       }
     ]
   },
@@ -17213,7 +17249,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/seZhvfiGTaU/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc97qJE5jeXLUs4FXr75zOQM",
-    "videoCount": 338,
+    "videoCount": 339,
     "videos": [
       {
         "id": "seZhvfiGTaU",
@@ -19239,9 +19275,15 @@
       },
       {
         "id": "yPn_DQfMrxM",
+        "title": "肉ジュワのハンバーグとサラダバーでお腹いっぱい！「ブロンコビリー」の凄さを教えます！",
+        "thumbnailUrl": "https://i.ytimg.com/vi/yPn_DQfMrxM/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
+      },
+      {
+        "id": "KAe2vcJGymU",
         "title": "Private video",
         "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
+        "url": "https://www.youtube.com/watch?v=KAe2vcJGymU"
       }
     ]
   },
