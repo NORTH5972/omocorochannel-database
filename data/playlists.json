@@ -813,7 +813,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/tcOXeNm8j5o/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-l6KY-fxAKfqA4WKYXzLxb",
-    "videoCount": 241,
+    "videoCount": 242,
     "videos": [
       {
         "id": "tcOXeNm8j5o",
@@ -2208,6 +2208,12 @@
         "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
       },
       {
+        "id": "ezWUjIpnP7A",
+        "title": "転倒・逆走・脱線アリの予測不能な出来レースで絶叫！！！【ホットストリーク】",
+        "thumbnailUrl": "https://i.ytimg.com/vi/ezWUjIpnP7A/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=ezWUjIpnP7A"
+      },
+      {
         "id": "Xt5s3-QcUhU",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2232,12 +2238,6 @@
         "url": "https://www.youtube.com/watch?v=tDbgD8PPkf4"
       },
       {
-        "id": "ezWUjIpnP7A",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=ezWUjIpnP7A"
-      },
-      {
         "id": "G6yFXkR__7E",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2260,6 +2260,12 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=EGIY9oAeKsQ"
+      },
+      {
+        "id": "H7WUA3rQ2sI",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=H7WUA3rQ2sI"
       }
     ]
   },
@@ -9979,7 +9985,7 @@
     "description": "",
     "thumbnailUrl": "https://i.ytimg.com/vi/qtA3isWhcyA/maxresdefault.jpg",
     "url": "https://www.youtube.com/playlist?list=PLb2_XmxSyzc-yqzJ6JMiMnjG_7unF3TUL",
-    "videoCount": 59,
+    "videoCount": 60,
     "videos": [
       {
         "id": "qtA3isWhcyA",
@@ -10334,6 +10340,12 @@
         "title": "肉ジュワのハンバーグとサラダバーでお腹いっぱい！「ブロンコビリー」の凄さを教えます！",
         "thumbnailUrl": "https://i.ytimg.com/vi/yPn_DQfMrxM/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=yPn_DQfMrxM"
+      },
+      {
+        "id": "H7WUA3rQ2sI",
+        "title": "Private video",
+        "thumbnailUrl": "",
+        "url": "https://www.youtube.com/watch?v=H7WUA3rQ2sI"
       }
     ]
   },
@@ -16507,8 +16519,8 @@
       },
       {
         "id": "ezWUjIpnP7A",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "転倒・逆走・脱線アリの予測不能な出来レースで絶叫！！！【ホットストリーク】",
+        "thumbnailUrl": "https://i.ytimg.com/vi/ezWUjIpnP7A/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=ezWUjIpnP7A"
       }
     ]
