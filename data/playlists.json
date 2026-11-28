@@ -2214,6 +2214,12 @@
         "url": "https://www.youtube.com/watch?v=ezWUjIpnP7A"
       },
       {
+        "id": "H7WUA3rQ2sI",
+        "title": "魂の授業、始めさせていただきます。",
+        "thumbnailUrl": "https://i.ytimg.com/vi/H7WUA3rQ2sI/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=H7WUA3rQ2sI"
+      },
+      {
         "id": "Xt5s3-QcUhU",
         "title": "Private video",
         "thumbnailUrl": "",
@@ -2260,12 +2266,6 @@
         "title": "Private video",
         "thumbnailUrl": "",
         "url": "https://www.youtube.com/watch?v=EGIY9oAeKsQ"
-      },
-      {
-        "id": "H7WUA3rQ2sI",
-        "title": "Private video",
-        "thumbnailUrl": "",
-        "url": "https://www.youtube.com/watch?v=H7WUA3rQ2sI"
       }
     ]
   },
@@ -10343,8 +10343,8 @@
       },
       {
         "id": "H7WUA3rQ2sI",
-        "title": "Private video",
-        "thumbnailUrl": "",
+        "title": "魂の授業、始めさせていただきます。",
+        "thumbnailUrl": "https://i.ytimg.com/vi/H7WUA3rQ2sI/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=H7WUA3rQ2sI"
       }
     ]
